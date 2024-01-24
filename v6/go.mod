@@ -1,4 +1,4 @@
-module github.com/dropbox/dropbox-sdk-go-unofficial/v6
+module github.com/szank/dropbox-sdk-go-unofficial/v6
 
 go 1.13
 

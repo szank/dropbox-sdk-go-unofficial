@@ -24,8 +24,8 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/auth"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/auth"
 )
 
 // Client interface describes all routes in this namespace
@@ -59,7 +59,7 @@ type Client interface {
 
 type apiImpl dropbox.Context
 
-//CountAPIError is an error-wrapper for the count route
+// CountAPIError is an error-wrapper for the count route
 type CountAPIError struct {
 	dropbox.APIError
 	EndpointError *CountFileRequestsError `json:"error"`
@@ -97,7 +97,7 @@ func (dbx *apiImpl) Count() (res *CountFileRequestsResult, err error) {
 	return
 }
 
-//CreateAPIError is an error-wrapper for the create route
+// CreateAPIError is an error-wrapper for the create route
 type CreateAPIError struct {
 	dropbox.APIError
 	EndpointError *CreateFileRequestError `json:"error"`
@@ -135,7 +135,7 @@ func (dbx *apiImpl) Create(arg *CreateFileRequestArgs) (res *FileRequest, err er
 	return
 }
 
-//DeleteAPIError is an error-wrapper for the delete route
+// DeleteAPIError is an error-wrapper for the delete route
 type DeleteAPIError struct {
 	dropbox.APIError
 	EndpointError *DeleteFileRequestError `json:"error"`
@@ -173,7 +173,7 @@ func (dbx *apiImpl) Delete(arg *DeleteFileRequestArgs) (res *DeleteFileRequestsR
 	return
 }
 
-//DeleteAllClosedAPIError is an error-wrapper for the delete_all_closed route
+// DeleteAllClosedAPIError is an error-wrapper for the delete_all_closed route
 type DeleteAllClosedAPIError struct {
 	dropbox.APIError
 	EndpointError *DeleteAllClosedFileRequestsError `json:"error"`
@@ -211,7 +211,7 @@ func (dbx *apiImpl) DeleteAllClosed() (res *DeleteAllClosedFileRequestsResult, e
 	return
 }
 
-//GetAPIError is an error-wrapper for the get route
+// GetAPIError is an error-wrapper for the get route
 type GetAPIError struct {
 	dropbox.APIError
 	EndpointError *GetFileRequestError `json:"error"`
@@ -249,7 +249,7 @@ func (dbx *apiImpl) Get(arg *GetFileRequestArgs) (res *FileRequest, err error) {
 	return
 }
 
-//ListV2APIError is an error-wrapper for the list_v2 route
+// ListV2APIError is an error-wrapper for the list_v2 route
 type ListV2APIError struct {
 	dropbox.APIError
 	EndpointError *ListFileRequestsError `json:"error"`
@@ -287,7 +287,7 @@ func (dbx *apiImpl) ListV2(arg *ListFileRequestsArg) (res *ListFileRequestsV2Res
 	return
 }
 
-//ListAPIError is an error-wrapper for the list route
+// ListAPIError is an error-wrapper for the list route
 type ListAPIError struct {
 	dropbox.APIError
 	EndpointError *ListFileRequestsError `json:"error"`
@@ -325,7 +325,7 @@ func (dbx *apiImpl) List() (res *ListFileRequestsResult, err error) {
 	return
 }
 
-//ListContinueAPIError is an error-wrapper for the list/continue route
+// ListContinueAPIError is an error-wrapper for the list/continue route
 type ListContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *ListFileRequestsContinueError `json:"error"`
@@ -363,7 +363,7 @@ func (dbx *apiImpl) ListContinue(arg *ListFileRequestsContinueArg) (res *ListFil
 	return
 }
 
-//UpdateAPIError is an error-wrapper for the update route
+// UpdateAPIError is an error-wrapper for the update route
 type UpdateAPIError struct {
 	dropbox.APIError
 	EndpointError *UpdateFileRequestError `json:"error"`

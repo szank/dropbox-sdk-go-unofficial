@@ -24,8 +24,8 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/auth"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/auth"
 )
 
 // Client interface describes all routes in this namespace
@@ -38,7 +38,7 @@ type Client interface {
 
 type apiImpl dropbox.Context
 
-//UserinfoAPIError is an error-wrapper for the userinfo route
+// UserinfoAPIError is an error-wrapper for the userinfo route
 type UserinfoAPIError struct {
 	dropbox.APIError
 	EndpointError *UserInfoError `json:"error"`

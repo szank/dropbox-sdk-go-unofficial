@@ -25,8 +25,8 @@ import (
 	"io"
 	"log"
 
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/auth"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/auth"
 )
 
 // Client interface describes all routes in this namespace
@@ -230,7 +230,7 @@ type Client interface {
 
 type apiImpl dropbox.Context
 
-//DocsArchiveAPIError is an error-wrapper for the docs/archive route
+// DocsArchiveAPIError is an error-wrapper for the docs/archive route
 type DocsArchiveAPIError struct {
 	dropbox.APIError
 	EndpointError *DocLookupError `json:"error"`
@@ -266,7 +266,7 @@ func (dbx *apiImpl) DocsArchive(arg *RefPaperDoc) (err error) {
 	return
 }
 
-//DocsCreateAPIError is an error-wrapper for the docs/create route
+// DocsCreateAPIError is an error-wrapper for the docs/create route
 type DocsCreateAPIError struct {
 	dropbox.APIError
 	EndpointError *PaperDocCreateError `json:"error"`
@@ -306,7 +306,7 @@ func (dbx *apiImpl) DocsCreate(arg *PaperDocCreateArgs, content io.Reader) (res 
 	return
 }
 
-//DocsDownloadAPIError is an error-wrapper for the docs/download route
+// DocsDownloadAPIError is an error-wrapper for the docs/download route
 type DocsDownloadAPIError struct {
 	dropbox.APIError
 	EndpointError *DocLookupError `json:"error"`
@@ -346,7 +346,7 @@ func (dbx *apiImpl) DocsDownload(arg *PaperDocExport) (res *PaperDocExportResult
 	return
 }
 
-//DocsFolderUsersListAPIError is an error-wrapper for the docs/folder_users/list route
+// DocsFolderUsersListAPIError is an error-wrapper for the docs/folder_users/list route
 type DocsFolderUsersListAPIError struct {
 	dropbox.APIError
 	EndpointError *DocLookupError `json:"error"`
@@ -386,7 +386,7 @@ func (dbx *apiImpl) DocsFolderUsersList(arg *ListUsersOnFolderArgs) (res *ListUs
 	return
 }
 
-//DocsFolderUsersListContinueAPIError is an error-wrapper for the docs/folder_users/list/continue route
+// DocsFolderUsersListContinueAPIError is an error-wrapper for the docs/folder_users/list/continue route
 type DocsFolderUsersListContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *ListUsersCursorError `json:"error"`
@@ -426,7 +426,7 @@ func (dbx *apiImpl) DocsFolderUsersListContinue(arg *ListUsersOnFolderContinueAr
 	return
 }
 
-//DocsGetFolderInfoAPIError is an error-wrapper for the docs/get_folder_info route
+// DocsGetFolderInfoAPIError is an error-wrapper for the docs/get_folder_info route
 type DocsGetFolderInfoAPIError struct {
 	dropbox.APIError
 	EndpointError *DocLookupError `json:"error"`
@@ -466,7 +466,7 @@ func (dbx *apiImpl) DocsGetFolderInfo(arg *RefPaperDoc) (res *FoldersContainingP
 	return
 }
 
-//DocsListAPIError is an error-wrapper for the docs/list route
+// DocsListAPIError is an error-wrapper for the docs/list route
 type DocsListAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -506,7 +506,7 @@ func (dbx *apiImpl) DocsList(arg *ListPaperDocsArgs) (res *ListPaperDocsResponse
 	return
 }
 
-//DocsListContinueAPIError is an error-wrapper for the docs/list/continue route
+// DocsListContinueAPIError is an error-wrapper for the docs/list/continue route
 type DocsListContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *ListDocsCursorError `json:"error"`
@@ -546,7 +546,7 @@ func (dbx *apiImpl) DocsListContinue(arg *ListPaperDocsContinueArgs) (res *ListP
 	return
 }
 
-//DocsPermanentlyDeleteAPIError is an error-wrapper for the docs/permanently_delete route
+// DocsPermanentlyDeleteAPIError is an error-wrapper for the docs/permanently_delete route
 type DocsPermanentlyDeleteAPIError struct {
 	dropbox.APIError
 	EndpointError *DocLookupError `json:"error"`
@@ -582,7 +582,7 @@ func (dbx *apiImpl) DocsPermanentlyDelete(arg *RefPaperDoc) (err error) {
 	return
 }
 
-//DocsSharingPolicyGetAPIError is an error-wrapper for the docs/sharing_policy/get route
+// DocsSharingPolicyGetAPIError is an error-wrapper for the docs/sharing_policy/get route
 type DocsSharingPolicyGetAPIError struct {
 	dropbox.APIError
 	EndpointError *DocLookupError `json:"error"`
@@ -622,7 +622,7 @@ func (dbx *apiImpl) DocsSharingPolicyGet(arg *RefPaperDoc) (res *SharingPolicy, 
 	return
 }
 
-//DocsSharingPolicySetAPIError is an error-wrapper for the docs/sharing_policy/set route
+// DocsSharingPolicySetAPIError is an error-wrapper for the docs/sharing_policy/set route
 type DocsSharingPolicySetAPIError struct {
 	dropbox.APIError
 	EndpointError *DocLookupError `json:"error"`
@@ -658,7 +658,7 @@ func (dbx *apiImpl) DocsSharingPolicySet(arg *PaperDocSharingPolicy) (err error)
 	return
 }
 
-//DocsUpdateAPIError is an error-wrapper for the docs/update route
+// DocsUpdateAPIError is an error-wrapper for the docs/update route
 type DocsUpdateAPIError struct {
 	dropbox.APIError
 	EndpointError *PaperDocUpdateError `json:"error"`
@@ -698,7 +698,7 @@ func (dbx *apiImpl) DocsUpdate(arg *PaperDocUpdateArgs, content io.Reader) (res 
 	return
 }
 
-//DocsUsersAddAPIError is an error-wrapper for the docs/users/add route
+// DocsUsersAddAPIError is an error-wrapper for the docs/users/add route
 type DocsUsersAddAPIError struct {
 	dropbox.APIError
 	EndpointError *DocLookupError `json:"error"`
@@ -738,7 +738,7 @@ func (dbx *apiImpl) DocsUsersAdd(arg *AddPaperDocUser) (res []*AddPaperDocUserMe
 	return
 }
 
-//DocsUsersListAPIError is an error-wrapper for the docs/users/list route
+// DocsUsersListAPIError is an error-wrapper for the docs/users/list route
 type DocsUsersListAPIError struct {
 	dropbox.APIError
 	EndpointError *DocLookupError `json:"error"`
@@ -778,7 +778,7 @@ func (dbx *apiImpl) DocsUsersList(arg *ListUsersOnPaperDocArgs) (res *ListUsersO
 	return
 }
 
-//DocsUsersListContinueAPIError is an error-wrapper for the docs/users/list/continue route
+// DocsUsersListContinueAPIError is an error-wrapper for the docs/users/list/continue route
 type DocsUsersListContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *ListUsersCursorError `json:"error"`
@@ -818,7 +818,7 @@ func (dbx *apiImpl) DocsUsersListContinue(arg *ListUsersOnPaperDocContinueArgs) 
 	return
 }
 
-//DocsUsersRemoveAPIError is an error-wrapper for the docs/users/remove route
+// DocsUsersRemoveAPIError is an error-wrapper for the docs/users/remove route
 type DocsUsersRemoveAPIError struct {
 	dropbox.APIError
 	EndpointError *DocLookupError `json:"error"`
@@ -854,7 +854,7 @@ func (dbx *apiImpl) DocsUsersRemove(arg *RemovePaperDocUser) (err error) {
 	return
 }
 
-//FoldersCreateAPIError is an error-wrapper for the folders/create route
+// FoldersCreateAPIError is an error-wrapper for the folders/create route
 type FoldersCreateAPIError struct {
 	dropbox.APIError
 	EndpointError *PaperFolderCreateError `json:"error"`

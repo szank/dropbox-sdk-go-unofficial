@@ -24,8 +24,8 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/auth"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/auth"
 )
 
 // Client interface describes all routes in this namespace
@@ -48,7 +48,7 @@ type Client interface {
 
 type apiImpl dropbox.Context
 
-//AppAPIError is an error-wrapper for the app route
+// AppAPIError is an error-wrapper for the app route
 type AppAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -86,7 +86,7 @@ func (dbx *apiImpl) App(arg *EchoArg) (res *EchoResult, err error) {
 	return
 }
 
-//UserAPIError is an error-wrapper for the user route
+// UserAPIError is an error-wrapper for the user route
 type UserAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`

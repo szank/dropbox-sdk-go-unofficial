@@ -25,10 +25,10 @@ import (
 	"io"
 	"log"
 
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/async"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/auth"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/file_properties"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/async"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/auth"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/file_properties"
 )
 
 // Client interface describes all routes in this namespace
@@ -462,7 +462,7 @@ type Client interface {
 
 type apiImpl dropbox.Context
 
-//AlphaGetMetadataAPIError is an error-wrapper for the alpha/get_metadata route
+// AlphaGetMetadataAPIError is an error-wrapper for the alpha/get_metadata route
 type AlphaGetMetadataAPIError struct {
 	dropbox.APIError
 	EndpointError *AlphaGetMetadataError `json:"error"`
@@ -514,7 +514,7 @@ func (dbx *apiImpl) AlphaGetMetadata(arg *AlphaGetMetadataArg) (res IsMetadata, 
 	return
 }
 
-//AlphaUploadAPIError is an error-wrapper for the alpha/upload route
+// AlphaUploadAPIError is an error-wrapper for the alpha/upload route
 type AlphaUploadAPIError struct {
 	dropbox.APIError
 	EndpointError *UploadError `json:"error"`
@@ -555,7 +555,7 @@ func (dbx *apiImpl) AlphaUpload(arg *UploadArg, content io.Reader) (res *FileMet
 	return
 }
 
-//CopyV2APIError is an error-wrapper for the copy_v2 route
+// CopyV2APIError is an error-wrapper for the copy_v2 route
 type CopyV2APIError struct {
 	dropbox.APIError
 	EndpointError *RelocationError `json:"error"`
@@ -593,7 +593,7 @@ func (dbx *apiImpl) CopyV2(arg *RelocationArg) (res *RelocationResult, err error
 	return
 }
 
-//CopyAPIError is an error-wrapper for the copy route
+// CopyAPIError is an error-wrapper for the copy route
 type CopyAPIError struct {
 	dropbox.APIError
 	EndpointError *RelocationError `json:"error"`
@@ -645,7 +645,7 @@ func (dbx *apiImpl) Copy(arg *RelocationArg) (res IsMetadata, err error) {
 	return
 }
 
-//CopyBatchV2APIError is an error-wrapper for the copy_batch_v2 route
+// CopyBatchV2APIError is an error-wrapper for the copy_batch_v2 route
 type CopyBatchV2APIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -683,7 +683,7 @@ func (dbx *apiImpl) CopyBatchV2(arg *RelocationBatchArgBase) (res *RelocationBat
 	return
 }
 
-//CopyBatchAPIError is an error-wrapper for the copy_batch route
+// CopyBatchAPIError is an error-wrapper for the copy_batch route
 type CopyBatchAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -724,7 +724,7 @@ func (dbx *apiImpl) CopyBatch(arg *RelocationBatchArg) (res *RelocationBatchLaun
 	return
 }
 
-//CopyBatchCheckV2APIError is an error-wrapper for the copy_batch/check_v2 route
+// CopyBatchCheckV2APIError is an error-wrapper for the copy_batch/check_v2 route
 type CopyBatchCheckV2APIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -762,7 +762,7 @@ func (dbx *apiImpl) CopyBatchCheckV2(arg *async.PollArg) (res *RelocationBatchV2
 	return
 }
 
-//CopyBatchCheckAPIError is an error-wrapper for the copy_batch/check route
+// CopyBatchCheckAPIError is an error-wrapper for the copy_batch/check route
 type CopyBatchCheckAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -803,7 +803,7 @@ func (dbx *apiImpl) CopyBatchCheck(arg *async.PollArg) (res *RelocationBatchJobS
 	return
 }
 
-//CopyReferenceGetAPIError is an error-wrapper for the copy_reference/get route
+// CopyReferenceGetAPIError is an error-wrapper for the copy_reference/get route
 type CopyReferenceGetAPIError struct {
 	dropbox.APIError
 	EndpointError *GetCopyReferenceError `json:"error"`
@@ -841,7 +841,7 @@ func (dbx *apiImpl) CopyReferenceGet(arg *GetCopyReferenceArg) (res *GetCopyRefe
 	return
 }
 
-//CopyReferenceSaveAPIError is an error-wrapper for the copy_reference/save route
+// CopyReferenceSaveAPIError is an error-wrapper for the copy_reference/save route
 type CopyReferenceSaveAPIError struct {
 	dropbox.APIError
 	EndpointError *SaveCopyReferenceError `json:"error"`
@@ -879,7 +879,7 @@ func (dbx *apiImpl) CopyReferenceSave(arg *SaveCopyReferenceArg) (res *SaveCopyR
 	return
 }
 
-//CreateFolderV2APIError is an error-wrapper for the create_folder_v2 route
+// CreateFolderV2APIError is an error-wrapper for the create_folder_v2 route
 type CreateFolderV2APIError struct {
 	dropbox.APIError
 	EndpointError *CreateFolderError `json:"error"`
@@ -917,7 +917,7 @@ func (dbx *apiImpl) CreateFolderV2(arg *CreateFolderArg) (res *CreateFolderResul
 	return
 }
 
-//CreateFolderAPIError is an error-wrapper for the create_folder route
+// CreateFolderAPIError is an error-wrapper for the create_folder route
 type CreateFolderAPIError struct {
 	dropbox.APIError
 	EndpointError *CreateFolderError `json:"error"`
@@ -958,7 +958,7 @@ func (dbx *apiImpl) CreateFolder(arg *CreateFolderArg) (res *FolderMetadata, err
 	return
 }
 
-//CreateFolderBatchAPIError is an error-wrapper for the create_folder_batch route
+// CreateFolderBatchAPIError is an error-wrapper for the create_folder_batch route
 type CreateFolderBatchAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -996,7 +996,7 @@ func (dbx *apiImpl) CreateFolderBatch(arg *CreateFolderBatchArg) (res *CreateFol
 	return
 }
 
-//CreateFolderBatchCheckAPIError is an error-wrapper for the create_folder_batch/check route
+// CreateFolderBatchCheckAPIError is an error-wrapper for the create_folder_batch/check route
 type CreateFolderBatchCheckAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -1034,7 +1034,7 @@ func (dbx *apiImpl) CreateFolderBatchCheck(arg *async.PollArg) (res *CreateFolde
 	return
 }
 
-//DeleteV2APIError is an error-wrapper for the delete_v2 route
+// DeleteV2APIError is an error-wrapper for the delete_v2 route
 type DeleteV2APIError struct {
 	dropbox.APIError
 	EndpointError *DeleteError `json:"error"`
@@ -1072,7 +1072,7 @@ func (dbx *apiImpl) DeleteV2(arg *DeleteArg) (res *DeleteResult, err error) {
 	return
 }
 
-//DeleteAPIError is an error-wrapper for the delete route
+// DeleteAPIError is an error-wrapper for the delete route
 type DeleteAPIError struct {
 	dropbox.APIError
 	EndpointError *DeleteError `json:"error"`
@@ -1124,7 +1124,7 @@ func (dbx *apiImpl) Delete(arg *DeleteArg) (res IsMetadata, err error) {
 	return
 }
 
-//DeleteBatchAPIError is an error-wrapper for the delete_batch route
+// DeleteBatchAPIError is an error-wrapper for the delete_batch route
 type DeleteBatchAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -1162,7 +1162,7 @@ func (dbx *apiImpl) DeleteBatch(arg *DeleteBatchArg) (res *DeleteBatchLaunch, er
 	return
 }
 
-//DeleteBatchCheckAPIError is an error-wrapper for the delete_batch/check route
+// DeleteBatchCheckAPIError is an error-wrapper for the delete_batch/check route
 type DeleteBatchCheckAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -1200,7 +1200,7 @@ func (dbx *apiImpl) DeleteBatchCheck(arg *async.PollArg) (res *DeleteBatchJobSta
 	return
 }
 
-//DownloadAPIError is an error-wrapper for the download route
+// DownloadAPIError is an error-wrapper for the download route
 type DownloadAPIError struct {
 	dropbox.APIError
 	EndpointError *DownloadError `json:"error"`
@@ -1238,7 +1238,7 @@ func (dbx *apiImpl) Download(arg *DownloadArg) (res *FileMetadata, content io.Re
 	return
 }
 
-//DownloadZipAPIError is an error-wrapper for the download_zip route
+// DownloadZipAPIError is an error-wrapper for the download_zip route
 type DownloadZipAPIError struct {
 	dropbox.APIError
 	EndpointError *DownloadZipError `json:"error"`
@@ -1276,7 +1276,7 @@ func (dbx *apiImpl) DownloadZip(arg *DownloadZipArg) (res *DownloadZipResult, co
 	return
 }
 
-//ExportAPIError is an error-wrapper for the export route
+// ExportAPIError is an error-wrapper for the export route
 type ExportAPIError struct {
 	dropbox.APIError
 	EndpointError *ExportError `json:"error"`
@@ -1314,7 +1314,7 @@ func (dbx *apiImpl) Export(arg *ExportArg) (res *ExportResult, content io.ReadCl
 	return
 }
 
-//GetFileLockBatchAPIError is an error-wrapper for the get_file_lock_batch route
+// GetFileLockBatchAPIError is an error-wrapper for the get_file_lock_batch route
 type GetFileLockBatchAPIError struct {
 	dropbox.APIError
 	EndpointError *LockFileError `json:"error"`
@@ -1352,7 +1352,7 @@ func (dbx *apiImpl) GetFileLockBatch(arg *LockFileBatchArg) (res *LockFileBatchR
 	return
 }
 
-//GetMetadataAPIError is an error-wrapper for the get_metadata route
+// GetMetadataAPIError is an error-wrapper for the get_metadata route
 type GetMetadataAPIError struct {
 	dropbox.APIError
 	EndpointError *GetMetadataError `json:"error"`
@@ -1401,7 +1401,7 @@ func (dbx *apiImpl) GetMetadata(arg *GetMetadataArg) (res IsMetadata, err error)
 	return
 }
 
-//GetPreviewAPIError is an error-wrapper for the get_preview route
+// GetPreviewAPIError is an error-wrapper for the get_preview route
 type GetPreviewAPIError struct {
 	dropbox.APIError
 	EndpointError *PreviewError `json:"error"`
@@ -1439,7 +1439,7 @@ func (dbx *apiImpl) GetPreview(arg *PreviewArg) (res *FileMetadata, content io.R
 	return
 }
 
-//GetTemporaryLinkAPIError is an error-wrapper for the get_temporary_link route
+// GetTemporaryLinkAPIError is an error-wrapper for the get_temporary_link route
 type GetTemporaryLinkAPIError struct {
 	dropbox.APIError
 	EndpointError *GetTemporaryLinkError `json:"error"`
@@ -1477,7 +1477,7 @@ func (dbx *apiImpl) GetTemporaryLink(arg *GetTemporaryLinkArg) (res *GetTemporar
 	return
 }
 
-//GetTemporaryUploadLinkAPIError is an error-wrapper for the get_temporary_upload_link route
+// GetTemporaryUploadLinkAPIError is an error-wrapper for the get_temporary_upload_link route
 type GetTemporaryUploadLinkAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -1515,7 +1515,7 @@ func (dbx *apiImpl) GetTemporaryUploadLink(arg *GetTemporaryUploadLinkArg) (res 
 	return
 }
 
-//GetThumbnailAPIError is an error-wrapper for the get_thumbnail route
+// GetThumbnailAPIError is an error-wrapper for the get_thumbnail route
 type GetThumbnailAPIError struct {
 	dropbox.APIError
 	EndpointError *ThumbnailError `json:"error"`
@@ -1553,7 +1553,7 @@ func (dbx *apiImpl) GetThumbnail(arg *ThumbnailArg) (res *FileMetadata, content 
 	return
 }
 
-//GetThumbnailV2APIError is an error-wrapper for the get_thumbnail_v2 route
+// GetThumbnailV2APIError is an error-wrapper for the get_thumbnail_v2 route
 type GetThumbnailV2APIError struct {
 	dropbox.APIError
 	EndpointError *ThumbnailV2Error `json:"error"`
@@ -1591,7 +1591,7 @@ func (dbx *apiImpl) GetThumbnailV2(arg *ThumbnailV2Arg) (res *PreviewResult, con
 	return
 }
 
-//GetThumbnailBatchAPIError is an error-wrapper for the get_thumbnail_batch route
+// GetThumbnailBatchAPIError is an error-wrapper for the get_thumbnail_batch route
 type GetThumbnailBatchAPIError struct {
 	dropbox.APIError
 	EndpointError *GetThumbnailBatchError `json:"error"`
@@ -1629,7 +1629,7 @@ func (dbx *apiImpl) GetThumbnailBatch(arg *GetThumbnailBatchArg) (res *GetThumbn
 	return
 }
 
-//ListFolderAPIError is an error-wrapper for the list_folder route
+// ListFolderAPIError is an error-wrapper for the list_folder route
 type ListFolderAPIError struct {
 	dropbox.APIError
 	EndpointError *ListFolderError `json:"error"`
@@ -1667,7 +1667,7 @@ func (dbx *apiImpl) ListFolder(arg *ListFolderArg) (res *ListFolderResult, err e
 	return
 }
 
-//ListFolderContinueAPIError is an error-wrapper for the list_folder/continue route
+// ListFolderContinueAPIError is an error-wrapper for the list_folder/continue route
 type ListFolderContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *ListFolderContinueError `json:"error"`
@@ -1705,7 +1705,7 @@ func (dbx *apiImpl) ListFolderContinue(arg *ListFolderContinueArg) (res *ListFol
 	return
 }
 
-//ListFolderGetLatestCursorAPIError is an error-wrapper for the list_folder/get_latest_cursor route
+// ListFolderGetLatestCursorAPIError is an error-wrapper for the list_folder/get_latest_cursor route
 type ListFolderGetLatestCursorAPIError struct {
 	dropbox.APIError
 	EndpointError *ListFolderError `json:"error"`
@@ -1743,7 +1743,7 @@ func (dbx *apiImpl) ListFolderGetLatestCursor(arg *ListFolderArg) (res *ListFold
 	return
 }
 
-//ListFolderLongpollAPIError is an error-wrapper for the list_folder/longpoll route
+// ListFolderLongpollAPIError is an error-wrapper for the list_folder/longpoll route
 type ListFolderLongpollAPIError struct {
 	dropbox.APIError
 	EndpointError *ListFolderLongpollError `json:"error"`
@@ -1781,7 +1781,7 @@ func (dbx *apiImpl) ListFolderLongpoll(arg *ListFolderLongpollArg) (res *ListFol
 	return
 }
 
-//ListRevisionsAPIError is an error-wrapper for the list_revisions route
+// ListRevisionsAPIError is an error-wrapper for the list_revisions route
 type ListRevisionsAPIError struct {
 	dropbox.APIError
 	EndpointError *ListRevisionsError `json:"error"`
@@ -1819,7 +1819,7 @@ func (dbx *apiImpl) ListRevisions(arg *ListRevisionsArg) (res *ListRevisionsResu
 	return
 }
 
-//LockFileBatchAPIError is an error-wrapper for the lock_file_batch route
+// LockFileBatchAPIError is an error-wrapper for the lock_file_batch route
 type LockFileBatchAPIError struct {
 	dropbox.APIError
 	EndpointError *LockFileError `json:"error"`
@@ -1857,7 +1857,7 @@ func (dbx *apiImpl) LockFileBatch(arg *LockFileBatchArg) (res *LockFileBatchResu
 	return
 }
 
-//MoveV2APIError is an error-wrapper for the move_v2 route
+// MoveV2APIError is an error-wrapper for the move_v2 route
 type MoveV2APIError struct {
 	dropbox.APIError
 	EndpointError *RelocationError `json:"error"`
@@ -1895,7 +1895,7 @@ func (dbx *apiImpl) MoveV2(arg *RelocationArg) (res *RelocationResult, err error
 	return
 }
 
-//MoveAPIError is an error-wrapper for the move route
+// MoveAPIError is an error-wrapper for the move route
 type MoveAPIError struct {
 	dropbox.APIError
 	EndpointError *RelocationError `json:"error"`
@@ -1947,7 +1947,7 @@ func (dbx *apiImpl) Move(arg *RelocationArg) (res IsMetadata, err error) {
 	return
 }
 
-//MoveBatchV2APIError is an error-wrapper for the move_batch_v2 route
+// MoveBatchV2APIError is an error-wrapper for the move_batch_v2 route
 type MoveBatchV2APIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -1985,7 +1985,7 @@ func (dbx *apiImpl) MoveBatchV2(arg *MoveBatchArg) (res *RelocationBatchV2Launch
 	return
 }
 
-//MoveBatchAPIError is an error-wrapper for the move_batch route
+// MoveBatchAPIError is an error-wrapper for the move_batch route
 type MoveBatchAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -2026,7 +2026,7 @@ func (dbx *apiImpl) MoveBatch(arg *RelocationBatchArg) (res *RelocationBatchLaun
 	return
 }
 
-//MoveBatchCheckV2APIError is an error-wrapper for the move_batch/check_v2 route
+// MoveBatchCheckV2APIError is an error-wrapper for the move_batch/check_v2 route
 type MoveBatchCheckV2APIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -2064,7 +2064,7 @@ func (dbx *apiImpl) MoveBatchCheckV2(arg *async.PollArg) (res *RelocationBatchV2
 	return
 }
 
-//MoveBatchCheckAPIError is an error-wrapper for the move_batch/check route
+// MoveBatchCheckAPIError is an error-wrapper for the move_batch/check route
 type MoveBatchCheckAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -2105,7 +2105,7 @@ func (dbx *apiImpl) MoveBatchCheck(arg *async.PollArg) (res *RelocationBatchJobS
 	return
 }
 
-//PaperCreateAPIError is an error-wrapper for the paper/create route
+// PaperCreateAPIError is an error-wrapper for the paper/create route
 type PaperCreateAPIError struct {
 	dropbox.APIError
 	EndpointError *PaperCreateError `json:"error"`
@@ -2143,7 +2143,7 @@ func (dbx *apiImpl) PaperCreate(arg *PaperCreateArg, content io.Reader) (res *Pa
 	return
 }
 
-//PaperUpdateAPIError is an error-wrapper for the paper/update route
+// PaperUpdateAPIError is an error-wrapper for the paper/update route
 type PaperUpdateAPIError struct {
 	dropbox.APIError
 	EndpointError *PaperUpdateError `json:"error"`
@@ -2181,7 +2181,7 @@ func (dbx *apiImpl) PaperUpdate(arg *PaperUpdateArg, content io.Reader) (res *Pa
 	return
 }
 
-//PermanentlyDeleteAPIError is an error-wrapper for the permanently_delete route
+// PermanentlyDeleteAPIError is an error-wrapper for the permanently_delete route
 type PermanentlyDeleteAPIError struct {
 	dropbox.APIError
 	EndpointError *DeleteError `json:"error"`
@@ -2215,7 +2215,7 @@ func (dbx *apiImpl) PermanentlyDelete(arg *DeleteArg) (err error) {
 	return
 }
 
-//PropertiesAddAPIError is an error-wrapper for the properties/add route
+// PropertiesAddAPIError is an error-wrapper for the properties/add route
 type PropertiesAddAPIError struct {
 	dropbox.APIError
 	EndpointError *file_properties.AddPropertiesError `json:"error"`
@@ -2251,7 +2251,7 @@ func (dbx *apiImpl) PropertiesAdd(arg *file_properties.AddPropertiesArg) (err er
 	return
 }
 
-//PropertiesOverwriteAPIError is an error-wrapper for the properties/overwrite route
+// PropertiesOverwriteAPIError is an error-wrapper for the properties/overwrite route
 type PropertiesOverwriteAPIError struct {
 	dropbox.APIError
 	EndpointError *file_properties.InvalidPropertyGroupError `json:"error"`
@@ -2287,7 +2287,7 @@ func (dbx *apiImpl) PropertiesOverwrite(arg *file_properties.OverwritePropertyGr
 	return
 }
 
-//PropertiesRemoveAPIError is an error-wrapper for the properties/remove route
+// PropertiesRemoveAPIError is an error-wrapper for the properties/remove route
 type PropertiesRemoveAPIError struct {
 	dropbox.APIError
 	EndpointError *file_properties.RemovePropertiesError `json:"error"`
@@ -2323,7 +2323,7 @@ func (dbx *apiImpl) PropertiesRemove(arg *file_properties.RemovePropertiesArg) (
 	return
 }
 
-//PropertiesTemplateGetAPIError is an error-wrapper for the properties/template/get route
+// PropertiesTemplateGetAPIError is an error-wrapper for the properties/template/get route
 type PropertiesTemplateGetAPIError struct {
 	dropbox.APIError
 	EndpointError *file_properties.TemplateError `json:"error"`
@@ -2363,7 +2363,7 @@ func (dbx *apiImpl) PropertiesTemplateGet(arg *file_properties.GetTemplateArg) (
 	return
 }
 
-//PropertiesTemplateListAPIError is an error-wrapper for the properties/template/list route
+// PropertiesTemplateListAPIError is an error-wrapper for the properties/template/list route
 type PropertiesTemplateListAPIError struct {
 	dropbox.APIError
 	EndpointError *file_properties.TemplateError `json:"error"`
@@ -2403,7 +2403,7 @@ func (dbx *apiImpl) PropertiesTemplateList() (res *file_properties.ListTemplateR
 	return
 }
 
-//PropertiesUpdateAPIError is an error-wrapper for the properties/update route
+// PropertiesUpdateAPIError is an error-wrapper for the properties/update route
 type PropertiesUpdateAPIError struct {
 	dropbox.APIError
 	EndpointError *file_properties.UpdatePropertiesError `json:"error"`
@@ -2439,7 +2439,7 @@ func (dbx *apiImpl) PropertiesUpdate(arg *file_properties.UpdatePropertiesArg) (
 	return
 }
 
-//RestoreAPIError is an error-wrapper for the restore route
+// RestoreAPIError is an error-wrapper for the restore route
 type RestoreAPIError struct {
 	dropbox.APIError
 	EndpointError *RestoreError `json:"error"`
@@ -2477,7 +2477,7 @@ func (dbx *apiImpl) Restore(arg *RestoreArg) (res *FileMetadata, err error) {
 	return
 }
 
-//SaveUrlAPIError is an error-wrapper for the save_url route
+// SaveUrlAPIError is an error-wrapper for the save_url route
 type SaveUrlAPIError struct {
 	dropbox.APIError
 	EndpointError *SaveUrlError `json:"error"`
@@ -2515,7 +2515,7 @@ func (dbx *apiImpl) SaveUrl(arg *SaveUrlArg) (res *SaveUrlResult, err error) {
 	return
 }
 
-//SaveUrlCheckJobStatusAPIError is an error-wrapper for the save_url/check_job_status route
+// SaveUrlCheckJobStatusAPIError is an error-wrapper for the save_url/check_job_status route
 type SaveUrlCheckJobStatusAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -2553,7 +2553,7 @@ func (dbx *apiImpl) SaveUrlCheckJobStatus(arg *async.PollArg) (res *SaveUrlJobSt
 	return
 }
 
-//SearchAPIError is an error-wrapper for the search route
+// SearchAPIError is an error-wrapper for the search route
 type SearchAPIError struct {
 	dropbox.APIError
 	EndpointError *SearchError `json:"error"`
@@ -2594,7 +2594,7 @@ func (dbx *apiImpl) Search(arg *SearchArg) (res *SearchResult, err error) {
 	return
 }
 
-//SearchV2APIError is an error-wrapper for the search_v2 route
+// SearchV2APIError is an error-wrapper for the search_v2 route
 type SearchV2APIError struct {
 	dropbox.APIError
 	EndpointError *SearchError `json:"error"`
@@ -2632,7 +2632,7 @@ func (dbx *apiImpl) SearchV2(arg *SearchV2Arg) (res *SearchV2Result, err error) 
 	return
 }
 
-//SearchContinueV2APIError is an error-wrapper for the search/continue_v2 route
+// SearchContinueV2APIError is an error-wrapper for the search/continue_v2 route
 type SearchContinueV2APIError struct {
 	dropbox.APIError
 	EndpointError *SearchError `json:"error"`
@@ -2670,7 +2670,7 @@ func (dbx *apiImpl) SearchContinueV2(arg *SearchV2ContinueArg) (res *SearchV2Res
 	return
 }
 
-//TagsAddAPIError is an error-wrapper for the tags/add route
+// TagsAddAPIError is an error-wrapper for the tags/add route
 type TagsAddAPIError struct {
 	dropbox.APIError
 	EndpointError *AddTagError `json:"error"`
@@ -2704,7 +2704,7 @@ func (dbx *apiImpl) TagsAdd(arg *AddTagArg) (err error) {
 	return
 }
 
-//TagsGetAPIError is an error-wrapper for the tags/get route
+// TagsGetAPIError is an error-wrapper for the tags/get route
 type TagsGetAPIError struct {
 	dropbox.APIError
 	EndpointError *BaseTagError `json:"error"`
@@ -2742,7 +2742,7 @@ func (dbx *apiImpl) TagsGet(arg *GetTagsArg) (res *GetTagsResult, err error) {
 	return
 }
 
-//TagsRemoveAPIError is an error-wrapper for the tags/remove route
+// TagsRemoveAPIError is an error-wrapper for the tags/remove route
 type TagsRemoveAPIError struct {
 	dropbox.APIError
 	EndpointError *RemoveTagError `json:"error"`
@@ -2776,7 +2776,7 @@ func (dbx *apiImpl) TagsRemove(arg *RemoveTagArg) (err error) {
 	return
 }
 
-//UnlockFileBatchAPIError is an error-wrapper for the unlock_file_batch route
+// UnlockFileBatchAPIError is an error-wrapper for the unlock_file_batch route
 type UnlockFileBatchAPIError struct {
 	dropbox.APIError
 	EndpointError *LockFileError `json:"error"`
@@ -2814,7 +2814,7 @@ func (dbx *apiImpl) UnlockFileBatch(arg *UnlockFileBatchArg) (res *LockFileBatch
 	return
 }
 
-//UploadAPIError is an error-wrapper for the upload route
+// UploadAPIError is an error-wrapper for the upload route
 type UploadAPIError struct {
 	dropbox.APIError
 	EndpointError *UploadError `json:"error"`
@@ -2852,7 +2852,7 @@ func (dbx *apiImpl) Upload(arg *UploadArg, content io.Reader) (res *FileMetadata
 	return
 }
 
-//UploadSessionAppendV2APIError is an error-wrapper for the upload_session/append_v2 route
+// UploadSessionAppendV2APIError is an error-wrapper for the upload_session/append_v2 route
 type UploadSessionAppendV2APIError struct {
 	dropbox.APIError
 	EndpointError *UploadSessionAppendError `json:"error"`
@@ -2886,7 +2886,7 @@ func (dbx *apiImpl) UploadSessionAppendV2(arg *UploadSessionAppendArg, content i
 	return
 }
 
-//UploadSessionAppendAPIError is an error-wrapper for the upload_session/append route
+// UploadSessionAppendAPIError is an error-wrapper for the upload_session/append route
 type UploadSessionAppendAPIError struct {
 	dropbox.APIError
 	EndpointError *UploadSessionAppendError `json:"error"`
@@ -2923,7 +2923,7 @@ func (dbx *apiImpl) UploadSessionAppend(arg *UploadSessionCursor, content io.Rea
 	return
 }
 
-//UploadSessionFinishAPIError is an error-wrapper for the upload_session/finish route
+// UploadSessionFinishAPIError is an error-wrapper for the upload_session/finish route
 type UploadSessionFinishAPIError struct {
 	dropbox.APIError
 	EndpointError *UploadSessionFinishError `json:"error"`
@@ -2961,7 +2961,7 @@ func (dbx *apiImpl) UploadSessionFinish(arg *UploadSessionFinishArg, content io.
 	return
 }
 
-//UploadSessionFinishBatchAPIError is an error-wrapper for the upload_session/finish_batch route
+// UploadSessionFinishBatchAPIError is an error-wrapper for the upload_session/finish_batch route
 type UploadSessionFinishBatchAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -3002,7 +3002,7 @@ func (dbx *apiImpl) UploadSessionFinishBatch(arg *UploadSessionFinishBatchArg) (
 	return
 }
 
-//UploadSessionFinishBatchV2APIError is an error-wrapper for the upload_session/finish_batch_v2 route
+// UploadSessionFinishBatchV2APIError is an error-wrapper for the upload_session/finish_batch_v2 route
 type UploadSessionFinishBatchV2APIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -3040,7 +3040,7 @@ func (dbx *apiImpl) UploadSessionFinishBatchV2(arg *UploadSessionFinishBatchArg)
 	return
 }
 
-//UploadSessionFinishBatchCheckAPIError is an error-wrapper for the upload_session/finish_batch/check route
+// UploadSessionFinishBatchCheckAPIError is an error-wrapper for the upload_session/finish_batch/check route
 type UploadSessionFinishBatchCheckAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -3078,7 +3078,7 @@ func (dbx *apiImpl) UploadSessionFinishBatchCheck(arg *async.PollArg) (res *Uplo
 	return
 }
 
-//UploadSessionStartAPIError is an error-wrapper for the upload_session/start route
+// UploadSessionStartAPIError is an error-wrapper for the upload_session/start route
 type UploadSessionStartAPIError struct {
 	dropbox.APIError
 	EndpointError *UploadSessionStartError `json:"error"`
@@ -3116,7 +3116,7 @@ func (dbx *apiImpl) UploadSessionStart(arg *UploadSessionStartArg, content io.Re
 	return
 }
 
-//UploadSessionStartBatchAPIError is an error-wrapper for the upload_session/start_batch route
+// UploadSessionStartBatchAPIError is an error-wrapper for the upload_session/start_batch route
 type UploadSessionStartBatchAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`

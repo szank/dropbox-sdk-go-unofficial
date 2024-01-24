@@ -23,8 +23,8 @@ package contacts
 import (
 	"io"
 
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/auth"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/auth"
 )
 
 // Client interface describes all routes in this namespace
@@ -40,7 +40,7 @@ type Client interface {
 
 type apiImpl dropbox.Context
 
-//DeleteManualContactsAPIError is an error-wrapper for the delete_manual_contacts route
+// DeleteManualContactsAPIError is an error-wrapper for the delete_manual_contacts route
 type DeleteManualContactsAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -74,7 +74,7 @@ func (dbx *apiImpl) DeleteManualContacts() (err error) {
 	return
 }
 
-//DeleteManualContactsBatchAPIError is an error-wrapper for the delete_manual_contacts_batch route
+// DeleteManualContactsBatchAPIError is an error-wrapper for the delete_manual_contacts_batch route
 type DeleteManualContactsBatchAPIError struct {
 	dropbox.APIError
 	EndpointError *DeleteManualContactsError `json:"error"`

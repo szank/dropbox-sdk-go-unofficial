@@ -24,8 +24,8 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/auth"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/auth"
 )
 
 // Client interface describes all routes in this namespace
@@ -47,7 +47,7 @@ type Client interface {
 
 type apiImpl dropbox.Context
 
-//FeaturesGetValuesAPIError is an error-wrapper for the features/get_values route
+// FeaturesGetValuesAPIError is an error-wrapper for the features/get_values route
 type FeaturesGetValuesAPIError struct {
 	dropbox.APIError
 	EndpointError *UserFeaturesGetValuesBatchError `json:"error"`
@@ -85,7 +85,7 @@ func (dbx *apiImpl) FeaturesGetValues(arg *UserFeaturesGetValuesBatchArg) (res *
 	return
 }
 
-//GetAccountAPIError is an error-wrapper for the get_account route
+// GetAccountAPIError is an error-wrapper for the get_account route
 type GetAccountAPIError struct {
 	dropbox.APIError
 	EndpointError *GetAccountError `json:"error"`
@@ -123,7 +123,7 @@ func (dbx *apiImpl) GetAccount(arg *GetAccountArg) (res *BasicAccount, err error
 	return
 }
 
-//GetAccountBatchAPIError is an error-wrapper for the get_account_batch route
+// GetAccountBatchAPIError is an error-wrapper for the get_account_batch route
 type GetAccountBatchAPIError struct {
 	dropbox.APIError
 	EndpointError *GetAccountBatchError `json:"error"`
@@ -161,7 +161,7 @@ func (dbx *apiImpl) GetAccountBatch(arg *GetAccountBatchArg) (res []*BasicAccoun
 	return
 }
 
-//GetCurrentAccountAPIError is an error-wrapper for the get_current_account route
+// GetCurrentAccountAPIError is an error-wrapper for the get_current_account route
 type GetCurrentAccountAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -199,7 +199,7 @@ func (dbx *apiImpl) GetCurrentAccount() (res *FullAccount, err error) {
 	return
 }
 
-//GetSpaceUsageAPIError is an error-wrapper for the get_space_usage route
+// GetSpaceUsageAPIError is an error-wrapper for the get_space_usage route
 type GetSpaceUsageAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`

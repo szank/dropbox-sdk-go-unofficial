@@ -24,7 +24,7 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox"
 )
 
 // Client interface describes all routes in this namespace
@@ -41,7 +41,7 @@ type Client interface {
 
 type apiImpl dropbox.Context
 
-//TokenFromOauth1APIError is an error-wrapper for the token/from_oauth1 route
+// TokenFromOauth1APIError is an error-wrapper for the token/from_oauth1 route
 type TokenFromOauth1APIError struct {
 	dropbox.APIError
 	EndpointError *TokenFromOAuth1Error `json:"error"`
@@ -79,7 +79,7 @@ func (dbx *apiImpl) TokenFromOauth1(arg *TokenFromOAuth1Arg) (res *TokenFromOAut
 	return
 }
 
-//TokenRevokeAPIError is an error-wrapper for the token/revoke route
+// TokenRevokeAPIError is an error-wrapper for the token/revoke route
 type TokenRevokeAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`

@@ -25,10 +25,10 @@ import (
 	"io"
 	"log"
 
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/async"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/auth"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/file_properties"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/async"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/auth"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/file_properties"
 )
 
 // Client interface describes all routes in this namespace
@@ -393,7 +393,7 @@ type Client interface {
 
 type apiImpl dropbox.Context
 
-//DevicesListMemberDevicesAPIError is an error-wrapper for the devices/list_member_devices route
+// DevicesListMemberDevicesAPIError is an error-wrapper for the devices/list_member_devices route
 type DevicesListMemberDevicesAPIError struct {
 	dropbox.APIError
 	EndpointError *ListMemberDevicesError `json:"error"`
@@ -431,7 +431,7 @@ func (dbx *apiImpl) DevicesListMemberDevices(arg *ListMemberDevicesArg) (res *Li
 	return
 }
 
-//DevicesListMembersDevicesAPIError is an error-wrapper for the devices/list_members_devices route
+// DevicesListMembersDevicesAPIError is an error-wrapper for the devices/list_members_devices route
 type DevicesListMembersDevicesAPIError struct {
 	dropbox.APIError
 	EndpointError *ListMembersDevicesError `json:"error"`
@@ -469,7 +469,7 @@ func (dbx *apiImpl) DevicesListMembersDevices(arg *ListMembersDevicesArg) (res *
 	return
 }
 
-//DevicesListTeamDevicesAPIError is an error-wrapper for the devices/list_team_devices route
+// DevicesListTeamDevicesAPIError is an error-wrapper for the devices/list_team_devices route
 type DevicesListTeamDevicesAPIError struct {
 	dropbox.APIError
 	EndpointError *ListTeamDevicesError `json:"error"`
@@ -510,7 +510,7 @@ func (dbx *apiImpl) DevicesListTeamDevices(arg *ListTeamDevicesArg) (res *ListTe
 	return
 }
 
-//DevicesRevokeDeviceSessionAPIError is an error-wrapper for the devices/revoke_device_session route
+// DevicesRevokeDeviceSessionAPIError is an error-wrapper for the devices/revoke_device_session route
 type DevicesRevokeDeviceSessionAPIError struct {
 	dropbox.APIError
 	EndpointError *RevokeDeviceSessionError `json:"error"`
@@ -544,7 +544,7 @@ func (dbx *apiImpl) DevicesRevokeDeviceSession(arg *RevokeDeviceSessionArg) (err
 	return
 }
 
-//DevicesRevokeDeviceSessionBatchAPIError is an error-wrapper for the devices/revoke_device_session_batch route
+// DevicesRevokeDeviceSessionBatchAPIError is an error-wrapper for the devices/revoke_device_session_batch route
 type DevicesRevokeDeviceSessionBatchAPIError struct {
 	dropbox.APIError
 	EndpointError *RevokeDeviceSessionBatchError `json:"error"`
@@ -582,7 +582,7 @@ func (dbx *apiImpl) DevicesRevokeDeviceSessionBatch(arg *RevokeDeviceSessionBatc
 	return
 }
 
-//FeaturesGetValuesAPIError is an error-wrapper for the features/get_values route
+// FeaturesGetValuesAPIError is an error-wrapper for the features/get_values route
 type FeaturesGetValuesAPIError struct {
 	dropbox.APIError
 	EndpointError *FeaturesGetValuesBatchError `json:"error"`
@@ -620,7 +620,7 @@ func (dbx *apiImpl) FeaturesGetValues(arg *FeaturesGetValuesBatchArg) (res *Feat
 	return
 }
 
-//GetInfoAPIError is an error-wrapper for the get_info route
+// GetInfoAPIError is an error-wrapper for the get_info route
 type GetInfoAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -658,7 +658,7 @@ func (dbx *apiImpl) GetInfo() (res *TeamGetInfoResult, err error) {
 	return
 }
 
-//GroupsCreateAPIError is an error-wrapper for the groups/create route
+// GroupsCreateAPIError is an error-wrapper for the groups/create route
 type GroupsCreateAPIError struct {
 	dropbox.APIError
 	EndpointError *GroupCreateError `json:"error"`
@@ -696,7 +696,7 @@ func (dbx *apiImpl) GroupsCreate(arg *GroupCreateArg) (res *GroupFullInfo, err e
 	return
 }
 
-//GroupsDeleteAPIError is an error-wrapper for the groups/delete route
+// GroupsDeleteAPIError is an error-wrapper for the groups/delete route
 type GroupsDeleteAPIError struct {
 	dropbox.APIError
 	EndpointError *GroupDeleteError `json:"error"`
@@ -734,7 +734,7 @@ func (dbx *apiImpl) GroupsDelete(arg *GroupSelector) (res *async.LaunchEmptyResu
 	return
 }
 
-//GroupsGetInfoAPIError is an error-wrapper for the groups/get_info route
+// GroupsGetInfoAPIError is an error-wrapper for the groups/get_info route
 type GroupsGetInfoAPIError struct {
 	dropbox.APIError
 	EndpointError *GroupsGetInfoError `json:"error"`
@@ -772,7 +772,7 @@ func (dbx *apiImpl) GroupsGetInfo(arg *GroupsSelector) (res []*GroupsGetInfoItem
 	return
 }
 
-//GroupsJobStatusGetAPIError is an error-wrapper for the groups/job_status/get route
+// GroupsJobStatusGetAPIError is an error-wrapper for the groups/job_status/get route
 type GroupsJobStatusGetAPIError struct {
 	dropbox.APIError
 	EndpointError *GroupsPollError `json:"error"`
@@ -810,7 +810,7 @@ func (dbx *apiImpl) GroupsJobStatusGet(arg *async.PollArg) (res *async.PollEmpty
 	return
 }
 
-//GroupsListAPIError is an error-wrapper for the groups/list route
+// GroupsListAPIError is an error-wrapper for the groups/list route
 type GroupsListAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -848,7 +848,7 @@ func (dbx *apiImpl) GroupsList(arg *GroupsListArg) (res *GroupsListResult, err e
 	return
 }
 
-//GroupsListContinueAPIError is an error-wrapper for the groups/list/continue route
+// GroupsListContinueAPIError is an error-wrapper for the groups/list/continue route
 type GroupsListContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *GroupsListContinueError `json:"error"`
@@ -886,7 +886,7 @@ func (dbx *apiImpl) GroupsListContinue(arg *GroupsListContinueArg) (res *GroupsL
 	return
 }
 
-//GroupsMembersAddAPIError is an error-wrapper for the groups/members/add route
+// GroupsMembersAddAPIError is an error-wrapper for the groups/members/add route
 type GroupsMembersAddAPIError struct {
 	dropbox.APIError
 	EndpointError *GroupMembersAddError `json:"error"`
@@ -924,7 +924,7 @@ func (dbx *apiImpl) GroupsMembersAdd(arg *GroupMembersAddArg) (res *GroupMembers
 	return
 }
 
-//GroupsMembersListAPIError is an error-wrapper for the groups/members/list route
+// GroupsMembersListAPIError is an error-wrapper for the groups/members/list route
 type GroupsMembersListAPIError struct {
 	dropbox.APIError
 	EndpointError *GroupSelectorError `json:"error"`
@@ -962,7 +962,7 @@ func (dbx *apiImpl) GroupsMembersList(arg *GroupsMembersListArg) (res *GroupsMem
 	return
 }
 
-//GroupsMembersListContinueAPIError is an error-wrapper for the groups/members/list/continue route
+// GroupsMembersListContinueAPIError is an error-wrapper for the groups/members/list/continue route
 type GroupsMembersListContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *GroupsMembersListContinueError `json:"error"`
@@ -1000,7 +1000,7 @@ func (dbx *apiImpl) GroupsMembersListContinue(arg *GroupsMembersListContinueArg)
 	return
 }
 
-//GroupsMembersRemoveAPIError is an error-wrapper for the groups/members/remove route
+// GroupsMembersRemoveAPIError is an error-wrapper for the groups/members/remove route
 type GroupsMembersRemoveAPIError struct {
 	dropbox.APIError
 	EndpointError *GroupMembersRemoveError `json:"error"`
@@ -1038,7 +1038,7 @@ func (dbx *apiImpl) GroupsMembersRemove(arg *GroupMembersRemoveArg) (res *GroupM
 	return
 }
 
-//GroupsMembersSetAccessTypeAPIError is an error-wrapper for the groups/members/set_access_type route
+// GroupsMembersSetAccessTypeAPIError is an error-wrapper for the groups/members/set_access_type route
 type GroupsMembersSetAccessTypeAPIError struct {
 	dropbox.APIError
 	EndpointError *GroupMemberSetAccessTypeError `json:"error"`
@@ -1076,7 +1076,7 @@ func (dbx *apiImpl) GroupsMembersSetAccessType(arg *GroupMembersSetAccessTypeArg
 	return
 }
 
-//GroupsUpdateAPIError is an error-wrapper for the groups/update route
+// GroupsUpdateAPIError is an error-wrapper for the groups/update route
 type GroupsUpdateAPIError struct {
 	dropbox.APIError
 	EndpointError *GroupUpdateError `json:"error"`
@@ -1114,7 +1114,7 @@ func (dbx *apiImpl) GroupsUpdate(arg *GroupUpdateArgs) (res *GroupFullInfo, err 
 	return
 }
 
-//LegalHoldsCreatePolicyAPIError is an error-wrapper for the legal_holds/create_policy route
+// LegalHoldsCreatePolicyAPIError is an error-wrapper for the legal_holds/create_policy route
 type LegalHoldsCreatePolicyAPIError struct {
 	dropbox.APIError
 	EndpointError *LegalHoldsPolicyCreateError `json:"error"`
@@ -1152,7 +1152,7 @@ func (dbx *apiImpl) LegalHoldsCreatePolicy(arg *LegalHoldsPolicyCreateArg) (res 
 	return
 }
 
-//LegalHoldsGetPolicyAPIError is an error-wrapper for the legal_holds/get_policy route
+// LegalHoldsGetPolicyAPIError is an error-wrapper for the legal_holds/get_policy route
 type LegalHoldsGetPolicyAPIError struct {
 	dropbox.APIError
 	EndpointError *LegalHoldsGetPolicyError `json:"error"`
@@ -1190,7 +1190,7 @@ func (dbx *apiImpl) LegalHoldsGetPolicy(arg *LegalHoldsGetPolicyArg) (res *Legal
 	return
 }
 
-//LegalHoldsListHeldRevisionsAPIError is an error-wrapper for the legal_holds/list_held_revisions route
+// LegalHoldsListHeldRevisionsAPIError is an error-wrapper for the legal_holds/list_held_revisions route
 type LegalHoldsListHeldRevisionsAPIError struct {
 	dropbox.APIError
 	EndpointError *LegalHoldsListHeldRevisionsError `json:"error"`
@@ -1228,7 +1228,7 @@ func (dbx *apiImpl) LegalHoldsListHeldRevisions(arg *LegalHoldsListHeldRevisions
 	return
 }
 
-//LegalHoldsListHeldRevisionsContinueAPIError is an error-wrapper for the legal_holds/list_held_revisions_continue route
+// LegalHoldsListHeldRevisionsContinueAPIError is an error-wrapper for the legal_holds/list_held_revisions_continue route
 type LegalHoldsListHeldRevisionsContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *LegalHoldsListHeldRevisionsError `json:"error"`
@@ -1266,7 +1266,7 @@ func (dbx *apiImpl) LegalHoldsListHeldRevisionsContinue(arg *LegalHoldsListHeldR
 	return
 }
 
-//LegalHoldsListPoliciesAPIError is an error-wrapper for the legal_holds/list_policies route
+// LegalHoldsListPoliciesAPIError is an error-wrapper for the legal_holds/list_policies route
 type LegalHoldsListPoliciesAPIError struct {
 	dropbox.APIError
 	EndpointError *LegalHoldsListPoliciesError `json:"error"`
@@ -1304,7 +1304,7 @@ func (dbx *apiImpl) LegalHoldsListPolicies(arg *LegalHoldsListPoliciesArg) (res 
 	return
 }
 
-//LegalHoldsReleasePolicyAPIError is an error-wrapper for the legal_holds/release_policy route
+// LegalHoldsReleasePolicyAPIError is an error-wrapper for the legal_holds/release_policy route
 type LegalHoldsReleasePolicyAPIError struct {
 	dropbox.APIError
 	EndpointError *LegalHoldsPolicyReleaseError `json:"error"`
@@ -1338,7 +1338,7 @@ func (dbx *apiImpl) LegalHoldsReleasePolicy(arg *LegalHoldsPolicyReleaseArg) (er
 	return
 }
 
-//LegalHoldsUpdatePolicyAPIError is an error-wrapper for the legal_holds/update_policy route
+// LegalHoldsUpdatePolicyAPIError is an error-wrapper for the legal_holds/update_policy route
 type LegalHoldsUpdatePolicyAPIError struct {
 	dropbox.APIError
 	EndpointError *LegalHoldsPolicyUpdateError `json:"error"`
@@ -1376,7 +1376,7 @@ func (dbx *apiImpl) LegalHoldsUpdatePolicy(arg *LegalHoldsPolicyUpdateArg) (res 
 	return
 }
 
-//LinkedAppsListMemberLinkedAppsAPIError is an error-wrapper for the linked_apps/list_member_linked_apps route
+// LinkedAppsListMemberLinkedAppsAPIError is an error-wrapper for the linked_apps/list_member_linked_apps route
 type LinkedAppsListMemberLinkedAppsAPIError struct {
 	dropbox.APIError
 	EndpointError *ListMemberAppsError `json:"error"`
@@ -1414,7 +1414,7 @@ func (dbx *apiImpl) LinkedAppsListMemberLinkedApps(arg *ListMemberAppsArg) (res 
 	return
 }
 
-//LinkedAppsListMembersLinkedAppsAPIError is an error-wrapper for the linked_apps/list_members_linked_apps route
+// LinkedAppsListMembersLinkedAppsAPIError is an error-wrapper for the linked_apps/list_members_linked_apps route
 type LinkedAppsListMembersLinkedAppsAPIError struct {
 	dropbox.APIError
 	EndpointError *ListMembersAppsError `json:"error"`
@@ -1452,7 +1452,7 @@ func (dbx *apiImpl) LinkedAppsListMembersLinkedApps(arg *ListMembersAppsArg) (re
 	return
 }
 
-//LinkedAppsListTeamLinkedAppsAPIError is an error-wrapper for the linked_apps/list_team_linked_apps route
+// LinkedAppsListTeamLinkedAppsAPIError is an error-wrapper for the linked_apps/list_team_linked_apps route
 type LinkedAppsListTeamLinkedAppsAPIError struct {
 	dropbox.APIError
 	EndpointError *ListTeamAppsError `json:"error"`
@@ -1493,7 +1493,7 @@ func (dbx *apiImpl) LinkedAppsListTeamLinkedApps(arg *ListTeamAppsArg) (res *Lis
 	return
 }
 
-//LinkedAppsRevokeLinkedAppAPIError is an error-wrapper for the linked_apps/revoke_linked_app route
+// LinkedAppsRevokeLinkedAppAPIError is an error-wrapper for the linked_apps/revoke_linked_app route
 type LinkedAppsRevokeLinkedAppAPIError struct {
 	dropbox.APIError
 	EndpointError *RevokeLinkedAppError `json:"error"`
@@ -1527,7 +1527,7 @@ func (dbx *apiImpl) LinkedAppsRevokeLinkedApp(arg *RevokeLinkedApiAppArg) (err e
 	return
 }
 
-//LinkedAppsRevokeLinkedAppBatchAPIError is an error-wrapper for the linked_apps/revoke_linked_app_batch route
+// LinkedAppsRevokeLinkedAppBatchAPIError is an error-wrapper for the linked_apps/revoke_linked_app_batch route
 type LinkedAppsRevokeLinkedAppBatchAPIError struct {
 	dropbox.APIError
 	EndpointError *RevokeLinkedAppBatchError `json:"error"`
@@ -1565,7 +1565,7 @@ func (dbx *apiImpl) LinkedAppsRevokeLinkedAppBatch(arg *RevokeLinkedApiAppBatchA
 	return
 }
 
-//MemberSpaceLimitsExcludedUsersAddAPIError is an error-wrapper for the member_space_limits/excluded_users/add route
+// MemberSpaceLimitsExcludedUsersAddAPIError is an error-wrapper for the member_space_limits/excluded_users/add route
 type MemberSpaceLimitsExcludedUsersAddAPIError struct {
 	dropbox.APIError
 	EndpointError *ExcludedUsersUpdateError `json:"error"`
@@ -1603,7 +1603,7 @@ func (dbx *apiImpl) MemberSpaceLimitsExcludedUsersAdd(arg *ExcludedUsersUpdateAr
 	return
 }
 
-//MemberSpaceLimitsExcludedUsersListAPIError is an error-wrapper for the member_space_limits/excluded_users/list route
+// MemberSpaceLimitsExcludedUsersListAPIError is an error-wrapper for the member_space_limits/excluded_users/list route
 type MemberSpaceLimitsExcludedUsersListAPIError struct {
 	dropbox.APIError
 	EndpointError *ExcludedUsersListError `json:"error"`
@@ -1641,7 +1641,7 @@ func (dbx *apiImpl) MemberSpaceLimitsExcludedUsersList(arg *ExcludedUsersListArg
 	return
 }
 
-//MemberSpaceLimitsExcludedUsersListContinueAPIError is an error-wrapper for the member_space_limits/excluded_users/list/continue route
+// MemberSpaceLimitsExcludedUsersListContinueAPIError is an error-wrapper for the member_space_limits/excluded_users/list/continue route
 type MemberSpaceLimitsExcludedUsersListContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *ExcludedUsersListContinueError `json:"error"`
@@ -1679,7 +1679,7 @@ func (dbx *apiImpl) MemberSpaceLimitsExcludedUsersListContinue(arg *ExcludedUser
 	return
 }
 
-//MemberSpaceLimitsExcludedUsersRemoveAPIError is an error-wrapper for the member_space_limits/excluded_users/remove route
+// MemberSpaceLimitsExcludedUsersRemoveAPIError is an error-wrapper for the member_space_limits/excluded_users/remove route
 type MemberSpaceLimitsExcludedUsersRemoveAPIError struct {
 	dropbox.APIError
 	EndpointError *ExcludedUsersUpdateError `json:"error"`
@@ -1717,7 +1717,7 @@ func (dbx *apiImpl) MemberSpaceLimitsExcludedUsersRemove(arg *ExcludedUsersUpdat
 	return
 }
 
-//MemberSpaceLimitsGetCustomQuotaAPIError is an error-wrapper for the member_space_limits/get_custom_quota route
+// MemberSpaceLimitsGetCustomQuotaAPIError is an error-wrapper for the member_space_limits/get_custom_quota route
 type MemberSpaceLimitsGetCustomQuotaAPIError struct {
 	dropbox.APIError
 	EndpointError *CustomQuotaError `json:"error"`
@@ -1755,7 +1755,7 @@ func (dbx *apiImpl) MemberSpaceLimitsGetCustomQuota(arg *CustomQuotaUsersArg) (r
 	return
 }
 
-//MemberSpaceLimitsRemoveCustomQuotaAPIError is an error-wrapper for the member_space_limits/remove_custom_quota route
+// MemberSpaceLimitsRemoveCustomQuotaAPIError is an error-wrapper for the member_space_limits/remove_custom_quota route
 type MemberSpaceLimitsRemoveCustomQuotaAPIError struct {
 	dropbox.APIError
 	EndpointError *CustomQuotaError `json:"error"`
@@ -1793,7 +1793,7 @@ func (dbx *apiImpl) MemberSpaceLimitsRemoveCustomQuota(arg *CustomQuotaUsersArg)
 	return
 }
 
-//MemberSpaceLimitsSetCustomQuotaAPIError is an error-wrapper for the member_space_limits/set_custom_quota route
+// MemberSpaceLimitsSetCustomQuotaAPIError is an error-wrapper for the member_space_limits/set_custom_quota route
 type MemberSpaceLimitsSetCustomQuotaAPIError struct {
 	dropbox.APIError
 	EndpointError *SetCustomQuotaError `json:"error"`
@@ -1831,7 +1831,7 @@ func (dbx *apiImpl) MemberSpaceLimitsSetCustomQuota(arg *SetCustomQuotaArg) (res
 	return
 }
 
-//MembersAddV2APIError is an error-wrapper for the members/add_v2 route
+// MembersAddV2APIError is an error-wrapper for the members/add_v2 route
 type MembersAddV2APIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -1869,7 +1869,7 @@ func (dbx *apiImpl) MembersAddV2(arg *MembersAddV2Arg) (res *MembersAddLaunchV2R
 	return
 }
 
-//MembersAddAPIError is an error-wrapper for the members/add route
+// MembersAddAPIError is an error-wrapper for the members/add route
 type MembersAddAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -1907,7 +1907,7 @@ func (dbx *apiImpl) MembersAdd(arg *MembersAddArg) (res *MembersAddLaunch, err e
 	return
 }
 
-//MembersAddJobStatusGetV2APIError is an error-wrapper for the members/add/job_status/get_v2 route
+// MembersAddJobStatusGetV2APIError is an error-wrapper for the members/add/job_status/get_v2 route
 type MembersAddJobStatusGetV2APIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -1945,7 +1945,7 @@ func (dbx *apiImpl) MembersAddJobStatusGetV2(arg *async.PollArg) (res *MembersAd
 	return
 }
 
-//MembersAddJobStatusGetAPIError is an error-wrapper for the members/add/job_status/get route
+// MembersAddJobStatusGetAPIError is an error-wrapper for the members/add/job_status/get route
 type MembersAddJobStatusGetAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -1983,7 +1983,7 @@ func (dbx *apiImpl) MembersAddJobStatusGet(arg *async.PollArg) (res *MembersAddJ
 	return
 }
 
-//MembersDeleteProfilePhotoV2APIError is an error-wrapper for the members/delete_profile_photo_v2 route
+// MembersDeleteProfilePhotoV2APIError is an error-wrapper for the members/delete_profile_photo_v2 route
 type MembersDeleteProfilePhotoV2APIError struct {
 	dropbox.APIError
 	EndpointError *MembersDeleteProfilePhotoError `json:"error"`
@@ -2021,7 +2021,7 @@ func (dbx *apiImpl) MembersDeleteProfilePhotoV2(arg *MembersDeleteProfilePhotoAr
 	return
 }
 
-//MembersDeleteProfilePhotoAPIError is an error-wrapper for the members/delete_profile_photo route
+// MembersDeleteProfilePhotoAPIError is an error-wrapper for the members/delete_profile_photo route
 type MembersDeleteProfilePhotoAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersDeleteProfilePhotoError `json:"error"`
@@ -2059,7 +2059,7 @@ func (dbx *apiImpl) MembersDeleteProfilePhoto(arg *MembersDeleteProfilePhotoArg)
 	return
 }
 
-//MembersGetAvailableTeamMemberRolesAPIError is an error-wrapper for the members/get_available_team_member_roles route
+// MembersGetAvailableTeamMemberRolesAPIError is an error-wrapper for the members/get_available_team_member_roles route
 type MembersGetAvailableTeamMemberRolesAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -2097,7 +2097,7 @@ func (dbx *apiImpl) MembersGetAvailableTeamMemberRoles() (res *MembersGetAvailab
 	return
 }
 
-//MembersGetInfoV2APIError is an error-wrapper for the members/get_info_v2 route
+// MembersGetInfoV2APIError is an error-wrapper for the members/get_info_v2 route
 type MembersGetInfoV2APIError struct {
 	dropbox.APIError
 	EndpointError *MembersGetInfoError `json:"error"`
@@ -2135,7 +2135,7 @@ func (dbx *apiImpl) MembersGetInfoV2(arg *MembersGetInfoV2Arg) (res *MembersGetI
 	return
 }
 
-//MembersGetInfoAPIError is an error-wrapper for the members/get_info route
+// MembersGetInfoAPIError is an error-wrapper for the members/get_info route
 type MembersGetInfoAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersGetInfoError `json:"error"`
@@ -2173,7 +2173,7 @@ func (dbx *apiImpl) MembersGetInfo(arg *MembersGetInfoArgs) (res []*MembersGetIn
 	return
 }
 
-//MembersListV2APIError is an error-wrapper for the members/list_v2 route
+// MembersListV2APIError is an error-wrapper for the members/list_v2 route
 type MembersListV2APIError struct {
 	dropbox.APIError
 	EndpointError *MembersListError `json:"error"`
@@ -2211,7 +2211,7 @@ func (dbx *apiImpl) MembersListV2(arg *MembersListArg) (res *MembersListV2Result
 	return
 }
 
-//MembersListAPIError is an error-wrapper for the members/list route
+// MembersListAPIError is an error-wrapper for the members/list route
 type MembersListAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersListError `json:"error"`
@@ -2249,7 +2249,7 @@ func (dbx *apiImpl) MembersList(arg *MembersListArg) (res *MembersListResult, er
 	return
 }
 
-//MembersListContinueV2APIError is an error-wrapper for the members/list/continue_v2 route
+// MembersListContinueV2APIError is an error-wrapper for the members/list/continue_v2 route
 type MembersListContinueV2APIError struct {
 	dropbox.APIError
 	EndpointError *MembersListContinueError `json:"error"`
@@ -2287,7 +2287,7 @@ func (dbx *apiImpl) MembersListContinueV2(arg *MembersListContinueArg) (res *Mem
 	return
 }
 
-//MembersListContinueAPIError is an error-wrapper for the members/list/continue route
+// MembersListContinueAPIError is an error-wrapper for the members/list/continue route
 type MembersListContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersListContinueError `json:"error"`
@@ -2325,7 +2325,7 @@ func (dbx *apiImpl) MembersListContinue(arg *MembersListContinueArg) (res *Membe
 	return
 }
 
-//MembersMoveFormerMemberFilesAPIError is an error-wrapper for the members/move_former_member_files route
+// MembersMoveFormerMemberFilesAPIError is an error-wrapper for the members/move_former_member_files route
 type MembersMoveFormerMemberFilesAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersTransferFormerMembersFilesError `json:"error"`
@@ -2363,7 +2363,7 @@ func (dbx *apiImpl) MembersMoveFormerMemberFiles(arg *MembersDataTransferArg) (r
 	return
 }
 
-//MembersMoveFormerMemberFilesJobStatusCheckAPIError is an error-wrapper for the members/move_former_member_files/job_status/check route
+// MembersMoveFormerMemberFilesJobStatusCheckAPIError is an error-wrapper for the members/move_former_member_files/job_status/check route
 type MembersMoveFormerMemberFilesJobStatusCheckAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -2401,7 +2401,7 @@ func (dbx *apiImpl) MembersMoveFormerMemberFilesJobStatusCheck(arg *async.PollAr
 	return
 }
 
-//MembersRecoverAPIError is an error-wrapper for the members/recover route
+// MembersRecoverAPIError is an error-wrapper for the members/recover route
 type MembersRecoverAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersRecoverError `json:"error"`
@@ -2435,7 +2435,7 @@ func (dbx *apiImpl) MembersRecover(arg *MembersRecoverArg) (err error) {
 	return
 }
 
-//MembersRemoveAPIError is an error-wrapper for the members/remove route
+// MembersRemoveAPIError is an error-wrapper for the members/remove route
 type MembersRemoveAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersRemoveError `json:"error"`
@@ -2473,7 +2473,7 @@ func (dbx *apiImpl) MembersRemove(arg *MembersRemoveArg) (res *async.LaunchEmpty
 	return
 }
 
-//MembersRemoveJobStatusGetAPIError is an error-wrapper for the members/remove/job_status/get route
+// MembersRemoveJobStatusGetAPIError is an error-wrapper for the members/remove/job_status/get route
 type MembersRemoveJobStatusGetAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -2511,7 +2511,7 @@ func (dbx *apiImpl) MembersRemoveJobStatusGet(arg *async.PollArg) (res *async.Po
 	return
 }
 
-//MembersSecondaryEmailsAddAPIError is an error-wrapper for the members/secondary_emails/add route
+// MembersSecondaryEmailsAddAPIError is an error-wrapper for the members/secondary_emails/add route
 type MembersSecondaryEmailsAddAPIError struct {
 	dropbox.APIError
 	EndpointError *AddSecondaryEmailsError `json:"error"`
@@ -2549,7 +2549,7 @@ func (dbx *apiImpl) MembersSecondaryEmailsAdd(arg *AddSecondaryEmailsArg) (res *
 	return
 }
 
-//MembersSecondaryEmailsDeleteAPIError is an error-wrapper for the members/secondary_emails/delete route
+// MembersSecondaryEmailsDeleteAPIError is an error-wrapper for the members/secondary_emails/delete route
 type MembersSecondaryEmailsDeleteAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -2587,7 +2587,7 @@ func (dbx *apiImpl) MembersSecondaryEmailsDelete(arg *DeleteSecondaryEmailsArg) 
 	return
 }
 
-//MembersSecondaryEmailsResendVerificationEmailsAPIError is an error-wrapper for the members/secondary_emails/resend_verification_emails route
+// MembersSecondaryEmailsResendVerificationEmailsAPIError is an error-wrapper for the members/secondary_emails/resend_verification_emails route
 type MembersSecondaryEmailsResendVerificationEmailsAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -2625,7 +2625,7 @@ func (dbx *apiImpl) MembersSecondaryEmailsResendVerificationEmails(arg *ResendVe
 	return
 }
 
-//MembersSendWelcomeEmailAPIError is an error-wrapper for the members/send_welcome_email route
+// MembersSendWelcomeEmailAPIError is an error-wrapper for the members/send_welcome_email route
 type MembersSendWelcomeEmailAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersSendWelcomeError `json:"error"`
@@ -2659,7 +2659,7 @@ func (dbx *apiImpl) MembersSendWelcomeEmail(arg *UserSelectorArg) (err error) {
 	return
 }
 
-//MembersSetAdminPermissionsV2APIError is an error-wrapper for the members/set_admin_permissions_v2 route
+// MembersSetAdminPermissionsV2APIError is an error-wrapper for the members/set_admin_permissions_v2 route
 type MembersSetAdminPermissionsV2APIError struct {
 	dropbox.APIError
 	EndpointError *MembersSetPermissions2Error `json:"error"`
@@ -2697,7 +2697,7 @@ func (dbx *apiImpl) MembersSetAdminPermissionsV2(arg *MembersSetPermissions2Arg)
 	return
 }
 
-//MembersSetAdminPermissionsAPIError is an error-wrapper for the members/set_admin_permissions route
+// MembersSetAdminPermissionsAPIError is an error-wrapper for the members/set_admin_permissions route
 type MembersSetAdminPermissionsAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersSetPermissionsError `json:"error"`
@@ -2735,7 +2735,7 @@ func (dbx *apiImpl) MembersSetAdminPermissions(arg *MembersSetPermissionsArg) (r
 	return
 }
 
-//MembersSetProfileV2APIError is an error-wrapper for the members/set_profile_v2 route
+// MembersSetProfileV2APIError is an error-wrapper for the members/set_profile_v2 route
 type MembersSetProfileV2APIError struct {
 	dropbox.APIError
 	EndpointError *MembersSetProfileError `json:"error"`
@@ -2773,7 +2773,7 @@ func (dbx *apiImpl) MembersSetProfileV2(arg *MembersSetProfileArg) (res *TeamMem
 	return
 }
 
-//MembersSetProfileAPIError is an error-wrapper for the members/set_profile route
+// MembersSetProfileAPIError is an error-wrapper for the members/set_profile route
 type MembersSetProfileAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersSetProfileError `json:"error"`
@@ -2811,7 +2811,7 @@ func (dbx *apiImpl) MembersSetProfile(arg *MembersSetProfileArg) (res *TeamMembe
 	return
 }
 
-//MembersSetProfilePhotoV2APIError is an error-wrapper for the members/set_profile_photo_v2 route
+// MembersSetProfilePhotoV2APIError is an error-wrapper for the members/set_profile_photo_v2 route
 type MembersSetProfilePhotoV2APIError struct {
 	dropbox.APIError
 	EndpointError *MembersSetProfilePhotoError `json:"error"`
@@ -2849,7 +2849,7 @@ func (dbx *apiImpl) MembersSetProfilePhotoV2(arg *MembersSetProfilePhotoArg) (re
 	return
 }
 
-//MembersSetProfilePhotoAPIError is an error-wrapper for the members/set_profile_photo route
+// MembersSetProfilePhotoAPIError is an error-wrapper for the members/set_profile_photo route
 type MembersSetProfilePhotoAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersSetProfilePhotoError `json:"error"`
@@ -2887,7 +2887,7 @@ func (dbx *apiImpl) MembersSetProfilePhoto(arg *MembersSetProfilePhotoArg) (res 
 	return
 }
 
-//MembersSuspendAPIError is an error-wrapper for the members/suspend route
+// MembersSuspendAPIError is an error-wrapper for the members/suspend route
 type MembersSuspendAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersSuspendError `json:"error"`
@@ -2921,7 +2921,7 @@ func (dbx *apiImpl) MembersSuspend(arg *MembersDeactivateArg) (err error) {
 	return
 }
 
-//MembersUnsuspendAPIError is an error-wrapper for the members/unsuspend route
+// MembersUnsuspendAPIError is an error-wrapper for the members/unsuspend route
 type MembersUnsuspendAPIError struct {
 	dropbox.APIError
 	EndpointError *MembersUnsuspendError `json:"error"`
@@ -2955,7 +2955,7 @@ func (dbx *apiImpl) MembersUnsuspend(arg *MembersUnsuspendArg) (err error) {
 	return
 }
 
-//NamespacesListAPIError is an error-wrapper for the namespaces/list route
+// NamespacesListAPIError is an error-wrapper for the namespaces/list route
 type NamespacesListAPIError struct {
 	dropbox.APIError
 	EndpointError *TeamNamespacesListError `json:"error"`
@@ -2993,7 +2993,7 @@ func (dbx *apiImpl) NamespacesList(arg *TeamNamespacesListArg) (res *TeamNamespa
 	return
 }
 
-//NamespacesListContinueAPIError is an error-wrapper for the namespaces/list/continue route
+// NamespacesListContinueAPIError is an error-wrapper for the namespaces/list/continue route
 type NamespacesListContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *TeamNamespacesListContinueError `json:"error"`
@@ -3031,7 +3031,7 @@ func (dbx *apiImpl) NamespacesListContinue(arg *TeamNamespacesListContinueArg) (
 	return
 }
 
-//PropertiesTemplateAddAPIError is an error-wrapper for the properties/template/add route
+// PropertiesTemplateAddAPIError is an error-wrapper for the properties/template/add route
 type PropertiesTemplateAddAPIError struct {
 	dropbox.APIError
 	EndpointError *file_properties.ModifyTemplateError `json:"error"`
@@ -3071,7 +3071,7 @@ func (dbx *apiImpl) PropertiesTemplateAdd(arg *file_properties.AddTemplateArg) (
 	return
 }
 
-//PropertiesTemplateGetAPIError is an error-wrapper for the properties/template/get route
+// PropertiesTemplateGetAPIError is an error-wrapper for the properties/template/get route
 type PropertiesTemplateGetAPIError struct {
 	dropbox.APIError
 	EndpointError *file_properties.TemplateError `json:"error"`
@@ -3111,7 +3111,7 @@ func (dbx *apiImpl) PropertiesTemplateGet(arg *file_properties.GetTemplateArg) (
 	return
 }
 
-//PropertiesTemplateListAPIError is an error-wrapper for the properties/template/list route
+// PropertiesTemplateListAPIError is an error-wrapper for the properties/template/list route
 type PropertiesTemplateListAPIError struct {
 	dropbox.APIError
 	EndpointError *file_properties.TemplateError `json:"error"`
@@ -3151,7 +3151,7 @@ func (dbx *apiImpl) PropertiesTemplateList() (res *file_properties.ListTemplateR
 	return
 }
 
-//PropertiesTemplateUpdateAPIError is an error-wrapper for the properties/template/update route
+// PropertiesTemplateUpdateAPIError is an error-wrapper for the properties/template/update route
 type PropertiesTemplateUpdateAPIError struct {
 	dropbox.APIError
 	EndpointError *file_properties.ModifyTemplateError `json:"error"`
@@ -3191,7 +3191,7 @@ func (dbx *apiImpl) PropertiesTemplateUpdate(arg *file_properties.UpdateTemplate
 	return
 }
 
-//ReportsGetActivityAPIError is an error-wrapper for the reports/get_activity route
+// ReportsGetActivityAPIError is an error-wrapper for the reports/get_activity route
 type ReportsGetActivityAPIError struct {
 	dropbox.APIError
 	EndpointError *DateRangeError `json:"error"`
@@ -3231,7 +3231,7 @@ func (dbx *apiImpl) ReportsGetActivity(arg *DateRange) (res *GetActivityReport, 
 	return
 }
 
-//ReportsGetDevicesAPIError is an error-wrapper for the reports/get_devices route
+// ReportsGetDevicesAPIError is an error-wrapper for the reports/get_devices route
 type ReportsGetDevicesAPIError struct {
 	dropbox.APIError
 	EndpointError *DateRangeError `json:"error"`
@@ -3271,7 +3271,7 @@ func (dbx *apiImpl) ReportsGetDevices(arg *DateRange) (res *GetDevicesReport, er
 	return
 }
 
-//ReportsGetMembershipAPIError is an error-wrapper for the reports/get_membership route
+// ReportsGetMembershipAPIError is an error-wrapper for the reports/get_membership route
 type ReportsGetMembershipAPIError struct {
 	dropbox.APIError
 	EndpointError *DateRangeError `json:"error"`
@@ -3311,7 +3311,7 @@ func (dbx *apiImpl) ReportsGetMembership(arg *DateRange) (res *GetMembershipRepo
 	return
 }
 
-//ReportsGetStorageAPIError is an error-wrapper for the reports/get_storage route
+// ReportsGetStorageAPIError is an error-wrapper for the reports/get_storage route
 type ReportsGetStorageAPIError struct {
 	dropbox.APIError
 	EndpointError *DateRangeError `json:"error"`
@@ -3351,7 +3351,7 @@ func (dbx *apiImpl) ReportsGetStorage(arg *DateRange) (res *GetStorageReport, er
 	return
 }
 
-//TeamFolderActivateAPIError is an error-wrapper for the team_folder/activate route
+// TeamFolderActivateAPIError is an error-wrapper for the team_folder/activate route
 type TeamFolderActivateAPIError struct {
 	dropbox.APIError
 	EndpointError *TeamFolderActivateError `json:"error"`
@@ -3389,7 +3389,7 @@ func (dbx *apiImpl) TeamFolderActivate(arg *TeamFolderIdArg) (res *TeamFolderMet
 	return
 }
 
-//TeamFolderArchiveAPIError is an error-wrapper for the team_folder/archive route
+// TeamFolderArchiveAPIError is an error-wrapper for the team_folder/archive route
 type TeamFolderArchiveAPIError struct {
 	dropbox.APIError
 	EndpointError *TeamFolderArchiveError `json:"error"`
@@ -3427,7 +3427,7 @@ func (dbx *apiImpl) TeamFolderArchive(arg *TeamFolderArchiveArg) (res *TeamFolde
 	return
 }
 
-//TeamFolderArchiveCheckAPIError is an error-wrapper for the team_folder/archive/check route
+// TeamFolderArchiveCheckAPIError is an error-wrapper for the team_folder/archive/check route
 type TeamFolderArchiveCheckAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -3465,7 +3465,7 @@ func (dbx *apiImpl) TeamFolderArchiveCheck(arg *async.PollArg) (res *TeamFolderA
 	return
 }
 
-//TeamFolderCreateAPIError is an error-wrapper for the team_folder/create route
+// TeamFolderCreateAPIError is an error-wrapper for the team_folder/create route
 type TeamFolderCreateAPIError struct {
 	dropbox.APIError
 	EndpointError *TeamFolderCreateError `json:"error"`
@@ -3503,7 +3503,7 @@ func (dbx *apiImpl) TeamFolderCreate(arg *TeamFolderCreateArg) (res *TeamFolderM
 	return
 }
 
-//TeamFolderGetInfoAPIError is an error-wrapper for the team_folder/get_info route
+// TeamFolderGetInfoAPIError is an error-wrapper for the team_folder/get_info route
 type TeamFolderGetInfoAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -3541,7 +3541,7 @@ func (dbx *apiImpl) TeamFolderGetInfo(arg *TeamFolderIdListArg) (res []*TeamFold
 	return
 }
 
-//TeamFolderListAPIError is an error-wrapper for the team_folder/list route
+// TeamFolderListAPIError is an error-wrapper for the team_folder/list route
 type TeamFolderListAPIError struct {
 	dropbox.APIError
 	EndpointError *TeamFolderListError `json:"error"`
@@ -3579,7 +3579,7 @@ func (dbx *apiImpl) TeamFolderList(arg *TeamFolderListArg) (res *TeamFolderListR
 	return
 }
 
-//TeamFolderListContinueAPIError is an error-wrapper for the team_folder/list/continue route
+// TeamFolderListContinueAPIError is an error-wrapper for the team_folder/list/continue route
 type TeamFolderListContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *TeamFolderListContinueError `json:"error"`
@@ -3617,7 +3617,7 @@ func (dbx *apiImpl) TeamFolderListContinue(arg *TeamFolderListContinueArg) (res 
 	return
 }
 
-//TeamFolderPermanentlyDeleteAPIError is an error-wrapper for the team_folder/permanently_delete route
+// TeamFolderPermanentlyDeleteAPIError is an error-wrapper for the team_folder/permanently_delete route
 type TeamFolderPermanentlyDeleteAPIError struct {
 	dropbox.APIError
 	EndpointError *TeamFolderPermanentlyDeleteError `json:"error"`
@@ -3651,7 +3651,7 @@ func (dbx *apiImpl) TeamFolderPermanentlyDelete(arg *TeamFolderIdArg) (err error
 	return
 }
 
-//TeamFolderRenameAPIError is an error-wrapper for the team_folder/rename route
+// TeamFolderRenameAPIError is an error-wrapper for the team_folder/rename route
 type TeamFolderRenameAPIError struct {
 	dropbox.APIError
 	EndpointError *TeamFolderRenameError `json:"error"`
@@ -3689,7 +3689,7 @@ func (dbx *apiImpl) TeamFolderRename(arg *TeamFolderRenameArg) (res *TeamFolderM
 	return
 }
 
-//TeamFolderUpdateSyncSettingsAPIError is an error-wrapper for the team_folder/update_sync_settings route
+// TeamFolderUpdateSyncSettingsAPIError is an error-wrapper for the team_folder/update_sync_settings route
 type TeamFolderUpdateSyncSettingsAPIError struct {
 	dropbox.APIError
 	EndpointError *TeamFolderUpdateSyncSettingsError `json:"error"`
@@ -3727,7 +3727,7 @@ func (dbx *apiImpl) TeamFolderUpdateSyncSettings(arg *TeamFolderUpdateSyncSettin
 	return
 }
 
-//TokenGetAuthenticatedAdminAPIError is an error-wrapper for the token/get_authenticated_admin route
+// TokenGetAuthenticatedAdminAPIError is an error-wrapper for the token/get_authenticated_admin route
 type TokenGetAuthenticatedAdminAPIError struct {
 	dropbox.APIError
 	EndpointError *TokenGetAuthenticatedAdminError `json:"error"`

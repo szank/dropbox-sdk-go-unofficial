@@ -25,9 +25,9 @@ import (
 	"io"
 	"log"
 
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/async"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/auth"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/async"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/auth"
 )
 
 // Client interface describes all routes in this namespace
@@ -210,7 +210,7 @@ type Client interface {
 
 type apiImpl dropbox.Context
 
-//AddFileMemberAPIError is an error-wrapper for the add_file_member route
+// AddFileMemberAPIError is an error-wrapper for the add_file_member route
 type AddFileMemberAPIError struct {
 	dropbox.APIError
 	EndpointError *AddFileMemberError `json:"error"`
@@ -248,7 +248,7 @@ func (dbx *apiImpl) AddFileMember(arg *AddFileMemberArgs) (res []*FileMemberActi
 	return
 }
 
-//AddFolderMemberAPIError is an error-wrapper for the add_folder_member route
+// AddFolderMemberAPIError is an error-wrapper for the add_folder_member route
 type AddFolderMemberAPIError struct {
 	dropbox.APIError
 	EndpointError *AddFolderMemberError `json:"error"`
@@ -282,7 +282,7 @@ func (dbx *apiImpl) AddFolderMember(arg *AddFolderMemberArg) (err error) {
 	return
 }
 
-//CheckJobStatusAPIError is an error-wrapper for the check_job_status route
+// CheckJobStatusAPIError is an error-wrapper for the check_job_status route
 type CheckJobStatusAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -320,7 +320,7 @@ func (dbx *apiImpl) CheckJobStatus(arg *async.PollArg) (res *JobStatus, err erro
 	return
 }
 
-//CheckRemoveMemberJobStatusAPIError is an error-wrapper for the check_remove_member_job_status route
+// CheckRemoveMemberJobStatusAPIError is an error-wrapper for the check_remove_member_job_status route
 type CheckRemoveMemberJobStatusAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -358,7 +358,7 @@ func (dbx *apiImpl) CheckRemoveMemberJobStatus(arg *async.PollArg) (res *RemoveM
 	return
 }
 
-//CheckShareJobStatusAPIError is an error-wrapper for the check_share_job_status route
+// CheckShareJobStatusAPIError is an error-wrapper for the check_share_job_status route
 type CheckShareJobStatusAPIError struct {
 	dropbox.APIError
 	EndpointError *async.PollError `json:"error"`
@@ -396,7 +396,7 @@ func (dbx *apiImpl) CheckShareJobStatus(arg *async.PollArg) (res *ShareFolderJob
 	return
 }
 
-//CreateSharedLinkAPIError is an error-wrapper for the create_shared_link route
+// CreateSharedLinkAPIError is an error-wrapper for the create_shared_link route
 type CreateSharedLinkAPIError struct {
 	dropbox.APIError
 	EndpointError *CreateSharedLinkError `json:"error"`
@@ -437,7 +437,7 @@ func (dbx *apiImpl) CreateSharedLink(arg *CreateSharedLinkArg) (res *PathLinkMet
 	return
 }
 
-//CreateSharedLinkWithSettingsAPIError is an error-wrapper for the create_shared_link_with_settings route
+// CreateSharedLinkWithSettingsAPIError is an error-wrapper for the create_shared_link_with_settings route
 type CreateSharedLinkWithSettingsAPIError struct {
 	dropbox.APIError
 	EndpointError *CreateSharedLinkWithSettingsError `json:"error"`
@@ -483,7 +483,7 @@ func (dbx *apiImpl) CreateSharedLinkWithSettings(arg *CreateSharedLinkWithSettin
 	return
 }
 
-//GetFileMetadataAPIError is an error-wrapper for the get_file_metadata route
+// GetFileMetadataAPIError is an error-wrapper for the get_file_metadata route
 type GetFileMetadataAPIError struct {
 	dropbox.APIError
 	EndpointError *GetFileMetadataError `json:"error"`
@@ -521,7 +521,7 @@ func (dbx *apiImpl) GetFileMetadata(arg *GetFileMetadataArg) (res *SharedFileMet
 	return
 }
 
-//GetFileMetadataBatchAPIError is an error-wrapper for the get_file_metadata/batch route
+// GetFileMetadataBatchAPIError is an error-wrapper for the get_file_metadata/batch route
 type GetFileMetadataBatchAPIError struct {
 	dropbox.APIError
 	EndpointError *SharingUserError `json:"error"`
@@ -559,7 +559,7 @@ func (dbx *apiImpl) GetFileMetadataBatch(arg *GetFileMetadataBatchArg) (res []*G
 	return
 }
 
-//GetFolderMetadataAPIError is an error-wrapper for the get_folder_metadata route
+// GetFolderMetadataAPIError is an error-wrapper for the get_folder_metadata route
 type GetFolderMetadataAPIError struct {
 	dropbox.APIError
 	EndpointError *SharedFolderAccessError `json:"error"`
@@ -597,7 +597,7 @@ func (dbx *apiImpl) GetFolderMetadata(arg *GetMetadataArgs) (res *SharedFolderMe
 	return
 }
 
-//GetSharedLinkFileAPIError is an error-wrapper for the get_shared_link_file route
+// GetSharedLinkFileAPIError is an error-wrapper for the get_shared_link_file route
 type GetSharedLinkFileAPIError struct {
 	dropbox.APIError
 	EndpointError *GetSharedLinkFileError `json:"error"`
@@ -643,7 +643,7 @@ func (dbx *apiImpl) GetSharedLinkFile(arg *GetSharedLinkMetadataArg) (res IsShar
 	return
 }
 
-//GetSharedLinkMetadataAPIError is an error-wrapper for the get_shared_link_metadata route
+// GetSharedLinkMetadataAPIError is an error-wrapper for the get_shared_link_metadata route
 type GetSharedLinkMetadataAPIError struct {
 	dropbox.APIError
 	EndpointError *SharedLinkError `json:"error"`
@@ -689,7 +689,7 @@ func (dbx *apiImpl) GetSharedLinkMetadata(arg *GetSharedLinkMetadataArg) (res Is
 	return
 }
 
-//GetSharedLinksAPIError is an error-wrapper for the get_shared_links route
+// GetSharedLinksAPIError is an error-wrapper for the get_shared_links route
 type GetSharedLinksAPIError struct {
 	dropbox.APIError
 	EndpointError *GetSharedLinksError `json:"error"`
@@ -730,7 +730,7 @@ func (dbx *apiImpl) GetSharedLinks(arg *GetSharedLinksArg) (res *GetSharedLinksR
 	return
 }
 
-//ListFileMembersAPIError is an error-wrapper for the list_file_members route
+// ListFileMembersAPIError is an error-wrapper for the list_file_members route
 type ListFileMembersAPIError struct {
 	dropbox.APIError
 	EndpointError *ListFileMembersError `json:"error"`
@@ -768,7 +768,7 @@ func (dbx *apiImpl) ListFileMembers(arg *ListFileMembersArg) (res *SharedFileMem
 	return
 }
 
-//ListFileMembersBatchAPIError is an error-wrapper for the list_file_members/batch route
+// ListFileMembersBatchAPIError is an error-wrapper for the list_file_members/batch route
 type ListFileMembersBatchAPIError struct {
 	dropbox.APIError
 	EndpointError *SharingUserError `json:"error"`
@@ -806,7 +806,7 @@ func (dbx *apiImpl) ListFileMembersBatch(arg *ListFileMembersBatchArg) (res []*L
 	return
 }
 
-//ListFileMembersContinueAPIError is an error-wrapper for the list_file_members/continue route
+// ListFileMembersContinueAPIError is an error-wrapper for the list_file_members/continue route
 type ListFileMembersContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *ListFileMembersContinueError `json:"error"`
@@ -844,7 +844,7 @@ func (dbx *apiImpl) ListFileMembersContinue(arg *ListFileMembersContinueArg) (re
 	return
 }
 
-//ListFolderMembersAPIError is an error-wrapper for the list_folder_members route
+// ListFolderMembersAPIError is an error-wrapper for the list_folder_members route
 type ListFolderMembersAPIError struct {
 	dropbox.APIError
 	EndpointError *SharedFolderAccessError `json:"error"`
@@ -882,7 +882,7 @@ func (dbx *apiImpl) ListFolderMembers(arg *ListFolderMembersArgs) (res *SharedFo
 	return
 }
 
-//ListFolderMembersContinueAPIError is an error-wrapper for the list_folder_members/continue route
+// ListFolderMembersContinueAPIError is an error-wrapper for the list_folder_members/continue route
 type ListFolderMembersContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *ListFolderMembersContinueError `json:"error"`
@@ -920,7 +920,7 @@ func (dbx *apiImpl) ListFolderMembersContinue(arg *ListFolderMembersContinueArg)
 	return
 }
 
-//ListFoldersAPIError is an error-wrapper for the list_folders route
+// ListFoldersAPIError is an error-wrapper for the list_folders route
 type ListFoldersAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -958,7 +958,7 @@ func (dbx *apiImpl) ListFolders(arg *ListFoldersArgs) (res *ListFoldersResult, e
 	return
 }
 
-//ListFoldersContinueAPIError is an error-wrapper for the list_folders/continue route
+// ListFoldersContinueAPIError is an error-wrapper for the list_folders/continue route
 type ListFoldersContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *ListFoldersContinueError `json:"error"`
@@ -996,7 +996,7 @@ func (dbx *apiImpl) ListFoldersContinue(arg *ListFoldersContinueArg) (res *ListF
 	return
 }
 
-//ListMountableFoldersAPIError is an error-wrapper for the list_mountable_folders route
+// ListMountableFoldersAPIError is an error-wrapper for the list_mountable_folders route
 type ListMountableFoldersAPIError struct {
 	dropbox.APIError
 	EndpointError struct{} `json:"error"`
@@ -1034,7 +1034,7 @@ func (dbx *apiImpl) ListMountableFolders(arg *ListFoldersArgs) (res *ListFolders
 	return
 }
 
-//ListMountableFoldersContinueAPIError is an error-wrapper for the list_mountable_folders/continue route
+// ListMountableFoldersContinueAPIError is an error-wrapper for the list_mountable_folders/continue route
 type ListMountableFoldersContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *ListFoldersContinueError `json:"error"`
@@ -1072,7 +1072,7 @@ func (dbx *apiImpl) ListMountableFoldersContinue(arg *ListFoldersContinueArg) (r
 	return
 }
 
-//ListReceivedFilesAPIError is an error-wrapper for the list_received_files route
+// ListReceivedFilesAPIError is an error-wrapper for the list_received_files route
 type ListReceivedFilesAPIError struct {
 	dropbox.APIError
 	EndpointError *SharingUserError `json:"error"`
@@ -1110,7 +1110,7 @@ func (dbx *apiImpl) ListReceivedFiles(arg *ListFilesArg) (res *ListFilesResult, 
 	return
 }
 
-//ListReceivedFilesContinueAPIError is an error-wrapper for the list_received_files/continue route
+// ListReceivedFilesContinueAPIError is an error-wrapper for the list_received_files/continue route
 type ListReceivedFilesContinueAPIError struct {
 	dropbox.APIError
 	EndpointError *ListFilesContinueError `json:"error"`
@@ -1148,7 +1148,7 @@ func (dbx *apiImpl) ListReceivedFilesContinue(arg *ListFilesContinueArg) (res *L
 	return
 }
 
-//ListSharedLinksAPIError is an error-wrapper for the list_shared_links route
+// ListSharedLinksAPIError is an error-wrapper for the list_shared_links route
 type ListSharedLinksAPIError struct {
 	dropbox.APIError
 	EndpointError *ListSharedLinksError `json:"error"`
@@ -1186,7 +1186,7 @@ func (dbx *apiImpl) ListSharedLinks(arg *ListSharedLinksArg) (res *ListSharedLin
 	return
 }
 
-//ModifySharedLinkSettingsAPIError is an error-wrapper for the modify_shared_link_settings route
+// ModifySharedLinkSettingsAPIError is an error-wrapper for the modify_shared_link_settings route
 type ModifySharedLinkSettingsAPIError struct {
 	dropbox.APIError
 	EndpointError *ModifySharedLinkSettingsError `json:"error"`
@@ -1232,7 +1232,7 @@ func (dbx *apiImpl) ModifySharedLinkSettings(arg *ModifySharedLinkSettingsArgs) 
 	return
 }
 
-//MountFolderAPIError is an error-wrapper for the mount_folder route
+// MountFolderAPIError is an error-wrapper for the mount_folder route
 type MountFolderAPIError struct {
 	dropbox.APIError
 	EndpointError *MountFolderError `json:"error"`
@@ -1270,7 +1270,7 @@ func (dbx *apiImpl) MountFolder(arg *MountFolderArg) (res *SharedFolderMetadata,
 	return
 }
 
-//RelinquishFileMembershipAPIError is an error-wrapper for the relinquish_file_membership route
+// RelinquishFileMembershipAPIError is an error-wrapper for the relinquish_file_membership route
 type RelinquishFileMembershipAPIError struct {
 	dropbox.APIError
 	EndpointError *RelinquishFileMembershipError `json:"error"`
@@ -1304,7 +1304,7 @@ func (dbx *apiImpl) RelinquishFileMembership(arg *RelinquishFileMembershipArg) (
 	return
 }
 
-//RelinquishFolderMembershipAPIError is an error-wrapper for the relinquish_folder_membership route
+// RelinquishFolderMembershipAPIError is an error-wrapper for the relinquish_folder_membership route
 type RelinquishFolderMembershipAPIError struct {
 	dropbox.APIError
 	EndpointError *RelinquishFolderMembershipError `json:"error"`
@@ -1342,7 +1342,7 @@ func (dbx *apiImpl) RelinquishFolderMembership(arg *RelinquishFolderMembershipAr
 	return
 }
 
-//RemoveFileMemberAPIError is an error-wrapper for the remove_file_member route
+// RemoveFileMemberAPIError is an error-wrapper for the remove_file_member route
 type RemoveFileMemberAPIError struct {
 	dropbox.APIError
 	EndpointError *RemoveFileMemberError `json:"error"`
@@ -1383,7 +1383,7 @@ func (dbx *apiImpl) RemoveFileMember(arg *RemoveFileMemberArg) (res *FileMemberA
 	return
 }
 
-//RemoveFileMember2APIError is an error-wrapper for the remove_file_member_2 route
+// RemoveFileMember2APIError is an error-wrapper for the remove_file_member_2 route
 type RemoveFileMember2APIError struct {
 	dropbox.APIError
 	EndpointError *RemoveFileMemberError `json:"error"`
@@ -1421,7 +1421,7 @@ func (dbx *apiImpl) RemoveFileMember2(arg *RemoveFileMemberArg) (res *FileMember
 	return
 }
 
-//RemoveFolderMemberAPIError is an error-wrapper for the remove_folder_member route
+// RemoveFolderMemberAPIError is an error-wrapper for the remove_folder_member route
 type RemoveFolderMemberAPIError struct {
 	dropbox.APIError
 	EndpointError *RemoveFolderMemberError `json:"error"`
@@ -1459,7 +1459,7 @@ func (dbx *apiImpl) RemoveFolderMember(arg *RemoveFolderMemberArg) (res *async.L
 	return
 }
 
-//RevokeSharedLinkAPIError is an error-wrapper for the revoke_shared_link route
+// RevokeSharedLinkAPIError is an error-wrapper for the revoke_shared_link route
 type RevokeSharedLinkAPIError struct {
 	dropbox.APIError
 	EndpointError *RevokeSharedLinkError `json:"error"`
@@ -1493,7 +1493,7 @@ func (dbx *apiImpl) RevokeSharedLink(arg *RevokeSharedLinkArg) (err error) {
 	return
 }
 
-//SetAccessInheritanceAPIError is an error-wrapper for the set_access_inheritance route
+// SetAccessInheritanceAPIError is an error-wrapper for the set_access_inheritance route
 type SetAccessInheritanceAPIError struct {
 	dropbox.APIError
 	EndpointError *SetAccessInheritanceError `json:"error"`
@@ -1531,7 +1531,7 @@ func (dbx *apiImpl) SetAccessInheritance(arg *SetAccessInheritanceArg) (res *Sha
 	return
 }
 
-//ShareFolderAPIError is an error-wrapper for the share_folder route
+// ShareFolderAPIError is an error-wrapper for the share_folder route
 type ShareFolderAPIError struct {
 	dropbox.APIError
 	EndpointError *ShareFolderError `json:"error"`
@@ -1569,7 +1569,7 @@ func (dbx *apiImpl) ShareFolder(arg *ShareFolderArg) (res *ShareFolderLaunch, er
 	return
 }
 
-//TransferFolderAPIError is an error-wrapper for the transfer_folder route
+// TransferFolderAPIError is an error-wrapper for the transfer_folder route
 type TransferFolderAPIError struct {
 	dropbox.APIError
 	EndpointError *TransferFolderError `json:"error"`
@@ -1603,7 +1603,7 @@ func (dbx *apiImpl) TransferFolder(arg *TransferFolderArg) (err error) {
 	return
 }
 
-//UnmountFolderAPIError is an error-wrapper for the unmount_folder route
+// UnmountFolderAPIError is an error-wrapper for the unmount_folder route
 type UnmountFolderAPIError struct {
 	dropbox.APIError
 	EndpointError *UnmountFolderError `json:"error"`
@@ -1637,7 +1637,7 @@ func (dbx *apiImpl) UnmountFolder(arg *UnmountFolderArg) (err error) {
 	return
 }
 
-//UnshareFileAPIError is an error-wrapper for the unshare_file route
+// UnshareFileAPIError is an error-wrapper for the unshare_file route
 type UnshareFileAPIError struct {
 	dropbox.APIError
 	EndpointError *UnshareFileError `json:"error"`
@@ -1671,7 +1671,7 @@ func (dbx *apiImpl) UnshareFile(arg *UnshareFileArg) (err error) {
 	return
 }
 
-//UnshareFolderAPIError is an error-wrapper for the unshare_folder route
+// UnshareFolderAPIError is an error-wrapper for the unshare_folder route
 type UnshareFolderAPIError struct {
 	dropbox.APIError
 	EndpointError *UnshareFolderError `json:"error"`
@@ -1709,7 +1709,7 @@ func (dbx *apiImpl) UnshareFolder(arg *UnshareFolderArg) (res *async.LaunchEmpty
 	return
 }
 
-//UpdateFileMemberAPIError is an error-wrapper for the update_file_member route
+// UpdateFileMemberAPIError is an error-wrapper for the update_file_member route
 type UpdateFileMemberAPIError struct {
 	dropbox.APIError
 	EndpointError *FileMemberActionError `json:"error"`
@@ -1747,7 +1747,7 @@ func (dbx *apiImpl) UpdateFileMember(arg *UpdateFileMemberArgs) (res *MemberAcce
 	return
 }
 
-//UpdateFolderMemberAPIError is an error-wrapper for the update_folder_member route
+// UpdateFolderMemberAPIError is an error-wrapper for the update_folder_member route
 type UpdateFolderMemberAPIError struct {
 	dropbox.APIError
 	EndpointError *UpdateFolderMemberError `json:"error"`
@@ -1785,7 +1785,7 @@ func (dbx *apiImpl) UpdateFolderMember(arg *UpdateFolderMemberArg) (res *MemberA
 	return
 }
 
-//UpdateFolderPolicyAPIError is an error-wrapper for the update_folder_policy route
+// UpdateFolderPolicyAPIError is an error-wrapper for the update_folder_policy route
 type UpdateFolderPolicyAPIError struct {
 	dropbox.APIError
 	EndpointError *UpdateFolderPolicyError `json:"error"`

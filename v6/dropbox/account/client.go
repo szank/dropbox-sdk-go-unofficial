@@ -24,8 +24,8 @@ import (
 	"encoding/json"
 	"io"
 
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox"
-	"github.com/dropbox/dropbox-sdk-go-unofficial/v6/dropbox/auth"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox"
+	"github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox/auth"
 )
 
 // Client interface describes all routes in this namespace
@@ -36,7 +36,7 @@ type Client interface {
 
 type apiImpl dropbox.Context
 
-//SetProfilePhotoAPIError is an error-wrapper for the set_profile_photo route
+// SetProfilePhotoAPIError is an error-wrapper for the set_profile_photo route
 type SetProfilePhotoAPIError struct {
 	dropbox.APIError
 	EndpointError *SetProfilePhotoError `json:"error"`

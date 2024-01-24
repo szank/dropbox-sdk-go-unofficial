@@ -31,6 +31,7 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"time"
 
 	"golang.org/x/oauth2"
 )
@@ -77,6 +78,11 @@ func (e SDKInternalError) Error() string {
 type Config struct {
 	// OAuth2 access token
 	Token string
+	// Refresh token for OAuth2
+	Oauth2RefreshToken string
+	// Expiration deadline for OAuth2 access token.
+	// The Oauth2 client should automatically refresh the token before this deadline.
+	Oauth2TokenExpiry time.Time
 	// Logging level for SDK generated logs
 	LogLevel LogLevel
 	// Logging target for verbose SDK logging
@@ -272,7 +278,11 @@ func NewContext(c Config) Context {
 	client := c.Client
 	if client == nil {
 		var conf = &oauth2.Config{Endpoint: OAuthEndpoint(domain)}
-		tok := &oauth2.Token{AccessToken: c.Token}
+		tok := &oauth2.Token{
+			AccessToken:  c.Token,
+			Expiry:       c.Oauth2TokenExpiry,
+			RefreshToken: c.Oauth2RefreshToken,
+		}
 		client = conf.Client(context.Background(), tok)
 	}
 

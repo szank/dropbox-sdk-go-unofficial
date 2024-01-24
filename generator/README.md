@@ -1,12 +1,12 @@
 # Dropbox Go SDK Generator
 
-This directory contains the [Stone](https://github.com/dropbox/stone) code generators
-used to programmatically generate the [Dropbox Go SDK](https://github.com/dropbox/dropbox-sdk-go).
+This directory contains the [Stone](https://github.com/szank/stone) code generators
+used to programmatically generate the [Dropbox Go SDK](https://github.com/szank/dropbox-sdk-go).
 
 ## Requirements
 
   * While not a hard requirement, this repo currently assumes `python3` in the path.
-  * Assumes you have already installed [Stone](https://github.com/dropbox/stone) and have `stone` in the path.
+  * Assumes you have already installed [Stone](https://github.com/szank/stone) and have `stone` in the path.
   * Requires [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports) in the path to fix up imports in the auto-generated code.
 
 ## Basic Setup
@@ -19,7 +19,7 @@ used to programmatically generate the [Dropbox Go SDK](https://github.com/dropbo
 
 ### Basic Types
 
-Here is how Stone [basic types](https://github.com/dropbox/stone/blob/master/doc/lang_ref.rst#basic-types) map to Go types:
+Here is how Stone [basic types](https://github.com/szank/stone/blob/master/doc/lang_ref.rst#basic-types) map to Go types:
 
 Stone Type | Go Type
 ---------- | -------
@@ -32,7 +32,7 @@ Void | struct{}
 
 ### Structs
 
-Stone [structs](https://github.com/dropbox/stone/blob/master/doc/lang_ref.rst#struct) are represented as Go [structs](https://gobyexample.com/structs) in a relatively straight-forward manner. Each struct member is exported and also gets assigned the correct json tag. The latter is used for serializing requests and deserializing responses. Non-primitive types are represented as pointers to the corresponding type.
+Stone [structs](https://github.com/szank/stone/blob/master/doc/lang_ref.rst#struct) are represented as Go [structs](https://gobyexample.com/structs) in a relatively straight-forward manner. Each struct member is exported and also gets assigned the correct json tag. The latter is used for serializing requests and deserializing responses. Non-primitive types are represented as pointers to the corresponding type.
 
 ```
 struct Account
@@ -58,7 +58,7 @@ type Account struct {
 
 #### Inheritance
 
-Stone supports [struct inheritance](https://github.com/dropbox/stone/blob/master/doc/lang_ref.rst#inheritance). In Go, we support this via [embedding](https://golang.org/doc/effective_go.html#embedding)
+Stone supports [struct inheritance](https://github.com/szank/stone/blob/master/doc/lang_ref.rst#inheritance). In Go, we support this via [embedding](https://golang.org/doc/effective_go.html#embedding)
 
 ```
 struct BasicAccount extends Account
@@ -80,7 +80,7 @@ type BasicAccount struct {
 
 ### Unions
 
-Stone https://github.com/dropbox/stone/blob/master/doc/lang_ref.rst#union[unions] are bit more complex as Go doesn't have native support for union types (tagged or otherwise). We declare a union as a Go struct with all the possible fields as pointer types, and then use the tag value to populate the correct field during deserialization. This necessitates the use of an intermediate wrapper struct for the deserialization to work correctly, see below for a concrete example.
+Stone https://github.com/szank/stone/blob/master/doc/lang_ref.rst#union[unions] are bit more complex as Go doesn't have native support for union types (tagged or otherwise). We declare a union as a Go struct with all the possible fields as pointer types, and then use the tag value to populate the correct field during deserialization. This necessitates the use of an intermediate wrapper struct for the deserialization to work correctly, see below for a concrete example.
 
 ```
 union SpaceAllocation
@@ -140,7 +140,7 @@ func (u *SpaceAllocation) UnmarshalJSON(body []byte) error {
 
 ### Struct with Enumerated Subtypes
 
-Per the https://github.com/dropbox/stone/blob/master/doc/lang_ref.rst#struct-polymorphism[spec], structs with enumerated subtypes are a mechanism of inheritance:
+Per the https://github.com/szank/stone/blob/master/doc/lang_ref.rst#struct-polymorphism[spec], structs with enumerated subtypes are a mechanism of inheritance:
 
 > If a struct enumerates its subtypes, an instance of any subtype will satisfy the type constraint. This is useful when wanting to discriminate amongst types that are part of the same hierarchy while simultaneously being able to avoid discriminating when accessing common fields.
 

@@ -1,4 +1,4 @@
-# Dropbox SDK for Go [UNOFFICIAL] [![GoDoc](https://pkg.go.dev/badge/github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox)](https://pkg.go.dev/github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox) [![Actions Status](https://github.com/dropbox/dropbox-sdk-go-unofficial/workflows/Test/badge.svg)](https://github.com/dropbox/dropbox-sdk-go-unofficial/actions) [![Actions Status](https://github.com/dropbox/dropbox-sdk-go-unofficial/workflows/Lint/badge.svg)](https://github.com/dropbox/dropbox-sdk-go-unofficial/actions)
+# Dropbox SDK for Go [UNOFFICIAL] [![GoDoc](https://pkg.go.dev/badge/github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox)](https://pkg.go.dev/github.com/szank/dropbox-sdk-go-unofficial/v6/dropbox) [![Actions Status](https://github.com/szank/dropbox-sdk-go-unofficial/workflows/Test/badge.svg)](https://github.com/szank/dropbox-sdk-go-unofficial/actions) [![Actions Status](https://github.com/szank/dropbox-sdk-go-unofficial/workflows/Lint/badge.svg)](https://github.com/szank/dropbox-sdk-go-unofficial/actions)
 
 An **UNOFFICIAL** Go SDK for integrating with the Dropbox API v2. Tested with Go 1.11+
 
@@ -11,7 +11,7 @@ An **UNOFFICIAL** Go SDK for integrating with the Dropbox API v2. Tested with Go
 
 ### Uh OK, so why are you releasing this?
 
-  * the SDK, while unofficial, _is_ usable. See [dbxcli](https://github.com/dropbox/dbxcli) for an example application built using the SDK
+  * the SDK, while unofficial, _is_ usable. See [dbxcli](https://github.com/szank/dbxcli) for an example application built using the SDK
   * we would like to get feedback from the community and evaluate the level of interest/enthusiasm before investing into official supporting one more SDK
 
 ## Installation
@@ -89,7 +89,7 @@ Please read the [API docs](https://www.dropbox.com/developers/documentation/http
 
 ## Code Generation
 
-This SDK is automatically generated using the public [Dropbox API spec](https://github.com/dropbox/dropbox-api-spec) and [Stone](https://github.com/dropbox/stone). See this [README](https://github.com/dropbox/dropbox-sdk-go-unofficial/blob/master/generator/README.md)
+This SDK is automatically generated using the public [Dropbox API spec](https://github.com/szank/dropbox-api-spec) and [Stone](https://github.com/szank/stone). See this [README](https://github.com/szank/dropbox-sdk-go-unofficial/blob/master/generator/README.md)
 for more details on how code is generated. 
 
 ## Caveats

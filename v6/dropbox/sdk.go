@@ -83,6 +83,10 @@ type Config struct {
 	// Expiration deadline for OAuth2 access token.
 	// The Oauth2 client should automatically refresh the token before this deadline.
 	Oauth2TokenExpiry time.Time
+	// App client ID
+	ClientID string
+	// App client secret
+	ClientSecret string
 	// Logging level for SDK generated logs
 	LogLevel LogLevel
 	// Logging target for verbose SDK logging
@@ -277,7 +281,11 @@ func NewContext(c Config) Context {
 
 	client := c.Client
 	if client == nil {
-		var conf = &oauth2.Config{Endpoint: OAuthEndpoint(domain)}
+		var conf = &oauth2.Config{
+			ClientID:     c.ClientID,
+			ClientSecret: c.ClientSecret,
+			Endpoint:     OAuthEndpoint(domain),
+		}
 		tok := &oauth2.Token{
 			AccessToken:  c.Token,
 			Expiry:       c.Oauth2TokenExpiry,
